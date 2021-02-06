@@ -21,9 +21,7 @@
             {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
-            {{-- <header>
-              
-            </header> --}}
+            @include('includes.header')
 
             <!-- Page Content -->
             <main>
@@ -34,6 +32,10 @@
                     {{ $slot }}
                 </div>
             </main>
+
+            <!-- Page Footer -->
+            @include('includes.footer')
+
         </div>
     </body>
 </html>
