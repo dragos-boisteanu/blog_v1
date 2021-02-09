@@ -17,25 +17,18 @@
         <script src="{{ asset(mix('js/client/app.js')) }}" defer></script>
     </head>
     <body>
+        @include('includes.header')
         <div class="view">
-            {{-- @include('layouts.navigation') --}}
-
-            <!-- Page Heading -->
-            @include('includes.header')
-
-            <!-- Page Content -->
-            <main>
-                <div class="view__title">
+            <main class="view__body">
+                <div class="title">
                     {{ $title }}
                 </div>    
-                <div class="view__content">
+                <div class="content">
                     {{ $slot }}
                 </div>
             </main>
-
-            <!-- Page Footer -->
-            @include('includes.footer')
-
+            @include('includes.side-content')
         </div>
+        @include('includes.footer')
     </body>
 </html>

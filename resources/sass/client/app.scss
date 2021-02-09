@@ -19,12 +19,17 @@
 
 // 4. Layout-related sections
 @import
+  'layout/body',
+  'layout/view',
+  'layout/_view-side',
+  'layout/posts',
   'layout/header',
   'layout/footer';
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/inputs';
 
 // 6. Page-specific styles
 @import

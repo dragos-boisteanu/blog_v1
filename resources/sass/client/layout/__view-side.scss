@@ -1,0 +1,19 @@
+.view__side {
+    padding: 15px;
+
+    flex: 0 1 auto;
+
+    .search-container {
+        margin-top: 25px;
+        position: relative;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #acacac;
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            
+        }
+    }
+}
