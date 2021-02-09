@@ -27,7 +27,7 @@
                     {{ $slot }}
                 </div>
             </main>
-            @include('includes.side-content')
+            @include('includes.side-view')
         </div>
         @include('includes.footer')
     </body>

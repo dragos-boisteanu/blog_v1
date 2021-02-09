@@ -6,4 +6,10 @@ input[type=text] {
     font-size: 0.9rem;
 
     outline: none;
+
+
+    &[name="search"] {
+       border: none;
+    }
 }
+

@@ -18,6 +18,8 @@ require __DIR__.'/auth.php';
 Route::namespace('Web\Client')->group(function () {
     Route::get('/', 'HomeController')->name('home');
     Route::get('/{category}/{slug}', 'PostController')->name('post.show');
+    Route::get('/{category}', 'CategoryController')->name('category.show');
+
 });
 
 Route::middleware(['auth'])->group(function() {

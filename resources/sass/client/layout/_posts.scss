@@ -87,25 +87,25 @@
                     }
                 }
 
-                .category-name {
-                    font-weight: 600;
-                    font-size: .8rem;
-                    color: #fff;
-                    padding: 5px;
-                    position: absolute;
-                    left: 0px;
-                    top: 0px;
-                    width: 60px;
-                    text-align: center;
-                    background: rgb(255, 115, 1);
-                }
-
+                .category-name,
                 .views-counter {
                     font-weight: 600;
                     font-size: .7rem;
-                    color: rgb(255, 255, 255);
+                    color: #fff;
                     padding: 5px;
                     position: absolute;
+                    text-align: center;
+                    
+                }
+
+                .category-name {
+                    background: rgb(255, 115, 1);
+                    left: 0px;
+                    top: 0px;
+                    width: 60px;
+                }
+
+                .views-counter {
                     right: 0px;
                     bottom: 0px;
                     background: rgb(223, 19, 19);

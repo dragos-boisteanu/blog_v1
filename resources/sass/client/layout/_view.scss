@@ -35,7 +35,10 @@
     
             .search-form {
                 display: flex;
-                align-items: center;
+                // align-items: center;
+                justify-content: space-between;
+                border: 1px solid #acacac;
+                border-radius: 3px;
             }
         }
 
@@ -52,12 +55,18 @@
 
                     font-size: 0.9rem;
 
-                    padding: 0 5px;
+                    padding: 0 5px 10px 5px;
                     margin: 10px 0;
 
-                    .title {
-                        flex: 0 0 200px;
+                    border-bottom: 1px dotted#00000033;
+
+                    &:last-of-type {
+                        border-bottom: 0;
                     }
+
+                    // .title {
+                    //     flex: 0 0 200px;
+                    // }
                 }
             }
         }

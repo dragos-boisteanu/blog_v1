@@ -17,6 +17,9 @@ class Post extends Model implements Viewable
 {
     use HasFactory, Sluggable, SoftDeletes, SluggableScopeHelpers, InteractsWithViews;
 
+
+    protected $with = ['category'];
+
     public function sluggable(): array
     {
         return [
