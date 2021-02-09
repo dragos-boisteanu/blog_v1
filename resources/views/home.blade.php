@@ -1,5 +1,8 @@
 <x-app-layout>
-    <x-slot name="title">
+    
+        
+    <x-slot name="breadcrumb">
+        {{ Breadcrumbs::render('home') }}
     </x-slot>
 
     <div class="posts">

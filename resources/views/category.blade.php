@@ -1,6 +1,6 @@
 <x-app-layout>
-    <x-slot name="title">
-       Category: {{ $category->name }}
+    <x-slot name="breadcrumb">
+        {{ Breadcrumbs::render('category', $category) }}
     </x-slot>
 
     <div class="posts">

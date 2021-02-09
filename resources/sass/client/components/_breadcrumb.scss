@@ -1,0 +1,25 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px 0 15px;
+    margin-top: 10px;
+    list-style: none;
+    font-weight: 600;
+    font-size: .7rem;
+ 
+    &-item {
+        text-transform: uppercase;
+        &::before {
+            content: '/';
+            margin: 0 10px;
+        }
+
+        &:first-of-type {
+            &::before {
+                content: '';
+                margin: 0;
+            }
+        }
+    }
+
+}

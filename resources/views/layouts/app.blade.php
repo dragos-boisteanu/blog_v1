@@ -20,8 +20,8 @@
         @include('includes.header')
         <div class="view">
             <main class="view__body">
-                <div class="title">
-                    {{ $title }}
+                <div>
+                    {{ $breadcrumb }}
                 </div>    
                 <div class="content">
                     {{ $slot }}

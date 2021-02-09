@@ -653,3 +653,24 @@ input[type=text][name=search] {
   justify-content: space-between;
   align-items: center;
 }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px 0 15px;
+  margin-top: 10px;
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+.breadcrumb-item {
+  text-transform: uppercase;
+}
+.breadcrumb-item::before {
+  content: "/";
+  margin: 0 10px;
+}
+.breadcrumb-item:first-of-type::before {
+  content: "";
+  margin: 0;
+}
