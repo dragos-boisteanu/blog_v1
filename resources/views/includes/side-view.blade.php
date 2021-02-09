@@ -17,7 +17,7 @@
                 <li class="item">
                     <div class="title">
                        <a href="{{ route('post.show', ['category'=>$mostViewedPost->category->name, 'slug'=>$mostViewedPost->slug]) }}">
-                        {{ $loop->index+1 . ' . ' . $mostViewedPost->title }}</a> 
+                        {{ $loop->index+1 . '. ' . $mostViewedPost->title }}</a> 
                     </div>
                 </li>
             @endforeach

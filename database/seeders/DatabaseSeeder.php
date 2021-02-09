@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            RoleSeeder::class,
-            UserSeeder::class,
-            CategorySeeder::class,
+            // RoleSeeder::class,
+            // UserSeeder::class,
+            // CategorySeeder::class,
         ]);
 
-        Post::factory()->count(50)->create();
+        Post::factory()->count(10)->create();
     }
 }

@@ -22,6 +22,7 @@
   'layout/body',
   'layout/view',
   'layout/posts',
+  'layout/post',
   'layout/header',
   'layout/footer';
 
@@ -30,7 +31,8 @@
   'components/button',
   'components/inputs',
   'components/simple-pagination',
-  'components/breadcrumb';
+  'components/breadcrumb',
+  'components/post-header';
 
 // 6. Page-specific styles
 @import
