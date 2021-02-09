@@ -27,5 +27,10 @@ class ComposerProvider extends ServiceProvider
             '*',
             'App\Http\ViewComposers\CategoriesComposer'
         );
+
+        view()->composer(
+            '*',
+            'App\Http\ViewComposers\MostViewedComposer'
+        );
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Web\Client;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -17,7 +16,13 @@ class PostController extends Controller
     public function __invoke($category, $slug)
     {
         $post = Post::findBySlugOrFail($slug);
-        
+
+        $expiresAt = now()->addHours(3);
+
+        views($post)
+            ->cooldown($expiresAt)
+            ->record();
+
         return view('post', compact('post'));
     }
 

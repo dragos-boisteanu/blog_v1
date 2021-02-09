@@ -471,13 +471,9 @@ body {
   padding: 15px;
 }
 .view__side {
-  flex: 0 0 300px;
+  flex: 0 0 200px;
   height: 100%;
-}
-
-.view__side {
   padding: 15px;
-  flex: 0 1 auto;
 }
 .view__side .search-container {
   margin-top: 25px;
@@ -489,6 +485,24 @@ body {
 .view__side .search-container .search-form {
   display: flex;
   align-items: center;
+}
+.view__side h5 {
+  margin: 10px 0;
+}
+.view__side .most-viewed .list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 0 5px;
+  margin: 10px 0;
+}
+.view__side .most-viewed .list .item .title {
+  flex: 0 0 200px;
+}
+.view__side .categories .list .item {
+  font-size: 0.9rem;
+  margin: 5px 0;
 }
 
 .posts .posts-list .post {
@@ -556,7 +570,8 @@ body {
   font-size: 0.6rem;
 }
 .posts .posts-list .post .header .category-name {
-  font-size: 0.7rem;
+  font-weight: 600;
+  font-size: 0.8rem;
   color: #fff;
   padding: 5px;
   position: absolute;
@@ -567,13 +582,14 @@ body {
   background: #ff7301;
 }
 .posts .posts-list .post .header .views-counter {
+  font-weight: 600;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   padding: 5px;
   position: absolute;
   right: 0px;
   bottom: 0px;
-  background: #a7a7a7;
+  background: #df1313;
 }
 .posts .posts-list .post .preview {
   padding: 15px 0;

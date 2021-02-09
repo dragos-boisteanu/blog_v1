@@ -88,7 +88,8 @@
                 }
 
                 .category-name {
-                    font-size: .7rem;
+                    font-weight: 600;
+                    font-size: .8rem;
                     color: #fff;
                     padding: 5px;
                     position: absolute;
@@ -96,21 +97,18 @@
                     top: 0px;
                     width: 60px;
                     text-align: center;
-                    // background-color: rgb(85, 85, 85);
-                    // transform: skew(-30deg);
                     background: rgb(255, 115, 1);
                 }
 
                 .views-counter {
+                    font-weight: 600;
                     font-size: .7rem;
-                    color: rgb(255, 255, 255, 0.7);
+                    color: rgb(255, 255, 255);
                     padding: 5px;
                     position: absolute;
                     right: 0px;
                     bottom: 0px;
-                    // background-color: rgb(85, 85, 85);
-                    // transform: skew(-30deg);
-                    background: rgb(167, 167, 167);
+                    background: rgb(223, 19, 19);
                 }
             }
 

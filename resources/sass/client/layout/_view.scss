@@ -20,10 +20,58 @@
     };
 
 
-
     &__side {
-        flex: 0 0 300px;
+        flex: 0 0 200px;
         height: 100%;
+
+        padding: 15px;
+    
+        .search-container {
+            margin-top: 25px;
+            position: relative;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #acacac;
+    
+            .search-form {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        h5 {
+            margin: 10px 0;
+        }
+
+        .most-viewed {
+            .list {
+                .item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    font-size: 0.9rem;
+
+                    padding: 0 5px;
+                    margin: 10px 0;
+
+                    .title {
+                        flex: 0 0 200px;
+                    }
+                }
+            }
+        }
+
+        .categories {
+            .list {
+                .item {
+                    font-size: 0.9rem;
+                    margin: 5px 0;
+                }
+            }
+           
+        }
+        
     }   
 
    

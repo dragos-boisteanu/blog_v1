@@ -8,39 +8,17 @@
     <div class="most-viewed">
         <h5>Most viewed posts</h5>
         <ul class="list">
-            <li class="item">
-                <div>
-                    1
-                </div>
-                <div>
-                    Post title
-                </div>
-                <div>
-                    200 views
-                </div>
-            </li>
-            <li class="item">
-                <div>
-                    2
-                </div>
-                <div>
-                    Post title 2
-                </div>
-                <div>
-                    100 views
-                </div>
-            </li>
-            <li class="item">
-                <div>
-                    3
-                </div>
-                <div>
-                    Post title 3
-                </div>
-                <div>
-                    50 views
-                </div>
-            </li>
+            @foreach($mostViewedPosts as $mostViewedPost)
+                <li class="item">
+                    <div class="title">
+                       <a href="{{ route('post.show', ['category'=>$mostViewedPost->category->name, 'slug'=>$mostViewedPost->slug]) }}">
+                        {{ $loop->index+1 . ' . ' . $mostViewedPost->title }}</a> 
+                    </div>
+                    <div class="count">
+                       {{ $mostViewedPost->viewsCount() }}
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </div>
     <div class="categories">
