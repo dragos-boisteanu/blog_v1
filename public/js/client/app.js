@@ -1871,7 +1871,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js"); //toggle user dropdown from header
 
 /***/ }),
 

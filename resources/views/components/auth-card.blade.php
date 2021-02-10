@@ -1,9 +1,11 @@
-<div >
-    <div>
+<div class="auth-card">
+    
+    <div class="logo">
         {{ $logo }}
     </div>
-
-    <div >
+    
+    <div class="data">
         {{ $slot }}
     </div>
+    
 </div>

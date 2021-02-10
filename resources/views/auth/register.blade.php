@@ -1,33 +1,31 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo  />
-            </a>
-        </x-slot>
+            <img src="{{asset('storage/logo.png')}}"/>
+        </x-slot>    
 
         <!-- Validation Errors -->
         <x-auth-validation-errors  :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" class="form" action="{{ route('register') }}">
             @csrf
 
             <!-- Name -->
-            <div>
+            <div class="form__group">
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name"  type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
-            <div >
+            <div class="form__group">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email"  type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
-            <div >
+            <div class="form__group" >
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" 
@@ -37,7 +35,7 @@
             </div>
 
             <!-- Confirm Password -->
-            <div >
+            <div class="form__group">
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
                 <x-input id="password_confirmation" 
@@ -45,14 +43,16 @@
                                 name="password_confirmation" required />
             </div>
 
-            <div >
+            <div class="form__group" >
+                <button type="submit" class="btn btn-auth" >
+                    {{ __('Register') }}
+                </button>
+            </div>
+
+            <div class="form__links">
                 <a  href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-
-                <x-button >
-                    {{ __('Register') }}
-                </x-button>
             </div>
         </form>
     </x-auth-card>

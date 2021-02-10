@@ -24,7 +24,7 @@ $text-color: rgb(34, 34, 34) !default;
 
 /// Main brand color
 /// @type Color
-$brand-color: rgb(229, 0, 80) !default;
+$brand-color: #e50050 !default;
 
 /// Light grey
 /// @type Color
@@ -69,3 +69,14 @@ $breakpoints: (
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/assets/' !default;
+
+
+
+$border-radius-value: 3px;
+
+$orange: #ff7301;
+$red: #df1313;
+$white: #ffff;
+$dark: #242424;
+$blue: #0097d3;
+$gray: #43464B;

@@ -1,9 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo  />
-            </a>
+            <img src="{{asset('storage/logo.png')}}"/>
         </x-slot>
 
         <!-- Session Status -->
@@ -12,24 +10,23 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors  :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" class="form" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+            <div class="form__group">
+                <x-label for="email" class="label" value="Email"/>
 
-                <x-input id="email"  type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" type="text" name="email" value="{{old('email')}}" autofocus />
             </div>
 
             <!-- Password -->
-            <div >
-                <x-label for="password" :value="__('Password')" />
+            <div class="form__group">
+                <x-label for="password" value="Password" />
 
                 <x-input id="password" 
                                 type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                                name="password" />
             </div>
 
             <!-- Remember Me -->
@@ -40,16 +37,21 @@
                 </label>
             </div>
 
-            <div >
+            
+            <button type="submit" class="btn btn-auth">
+                Login
+            </button>
+
+            <div class="form__links">
                 @if (Route::has('password.request'))
                     <a  href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
-                <x-button >
-                    {{ __('Login') }}
-                </x-button>
+                
+                <a href="{{ route('register') }}">
+                    Not a member ? Join now !
+                </a>
             </div>
         </form>
     </x-auth-card>

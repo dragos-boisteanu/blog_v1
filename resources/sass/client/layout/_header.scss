@@ -4,8 +4,76 @@ header {
     width: 100%;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    background: red;
+    position: relative;
+
+    background: $dark;
+    padding: 10px 25px;
+
+    .logo {
+        height: 40px;
+        
+        img {
+            height: 100%;
+        }
+    }
+
+    .guest-area, 
+    .user-area {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        padding: 2px 5px;
+        font-size: 0.8rem;
+        width: 125px;
+
+        font-size: 0.725rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+        0 2px 2px rgba(0,0,0,0.20), 
+        0 4px 4px rgba(0,0,0,0.15), 
+        0 8px 8px rgba(0,0,0,0.10),
+        0 16px 16px rgba(0,0,0,0.05);
+    }
+
+    .guest-area {
+        text-rendering: optimizeLegibility;
+        background: $gray;
+
+        &:hover {
+            background-color: $red;
+        }
+    }
+
+    .user-area {
+        background: $white;
+
+        &:hover {
+            .dropdown__content {
+                display: block;
+            }
+
+            .dropdown__header {
+                .arrows {
+                    .arrow-down {
+                        display: none;
+                    }
+
+                    .arrow-up {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+        // background: $dark-grey;
+
+    }
 }

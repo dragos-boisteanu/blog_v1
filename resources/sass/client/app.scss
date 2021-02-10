@@ -21,10 +21,11 @@
 @import
   'layout/body',
   'layout/view',
-  'layout/posts',
-  'layout/post',
+  'layout/auth-card',
+  'layout/form',
   'layout/header',
-  'layout/footer';
+  'layout/footer',
+  'layout/posts';
 
 // 5. Components
 @import
@@ -32,11 +33,12 @@
   'components/inputs',
   'components/simple-pagination',
   'components/breadcrumb',
-  'components/post-header';
+  'components/post-header',
+  'components/header-dropdown';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/post';
 
 // 7. Themes
 @import

@@ -5,11 +5,15 @@
             flex-direction: column;
 
             margin: 25px 0;
-
+            
             border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
 
             &:last-of-type {
                 border-bottom: none;
+            }
+
+            &:first-of-type {
+                margin-top: 0;
             }
 
             .header {
@@ -57,11 +61,10 @@
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
-                   
 
                     .details {
 
-                        color: rgb(255, 255, 255);
+                        color: $white;
 
                         width: 65%;
                         height: 50%;
@@ -99,7 +102,7 @@
                 }
 
                 .category-name {
-                    background: rgb(255, 115, 1);
+                    background: $orange;
                     left: 0px;
                     top: 0px;
                     width: 60px;
@@ -108,7 +111,7 @@
                 .views-counter {
                     right: 0px;
                     bottom: 0px;
-                    background: rgb(223, 19, 19);
+                    background: $red;
                 }
             }
 
