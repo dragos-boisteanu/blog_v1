@@ -48,7 +48,12 @@ header {
         background: $gray;
 
         &:hover {
+            cursor: pointer;
             background-color: $red;
+           
+            a {
+                color: $text-color;
+            }
         }
     }
 

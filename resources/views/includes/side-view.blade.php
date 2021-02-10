@@ -11,7 +11,7 @@
         </form>
     </div>
     <div class="most-viewed">
-        <h5>Most viewed posts</h5>
+        <h5>Most read</h5>
         <ul class="list">
             @foreach($mostViewedPosts as $mostViewedPost)
                 <li class="item">

@@ -1,7 +1,7 @@
 @props(['errors'])
 
 @if ($errors->any())
-    <div {{ $attributes }}>
+    <div {{ $attributes }} class="form__notification">
         <div >
             {{ __('Whoops! Something went wrong.') }}
         </div>

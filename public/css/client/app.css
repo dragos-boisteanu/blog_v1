@@ -522,7 +522,7 @@ body {
 }
 .auth-card .logo {
   text-align: center;
-  height: 128px;
+  height: 138px;
   width: 384px;
   display: flex;
   justify-content: center;
@@ -568,17 +568,34 @@ body {
   border: 2px solid #0097d3;
   margin: -1px;
 }
-.form .form__links {
+.form__links {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.form .form__links a {
+.form__links a {
   font-size: 0.9rem;
   margin-top: 5px;
 }
-.form .form__links a:first-of-type {
+.form__links a:first-of-type {
   margin-top: 0;
+}
+.form__notification {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: left;
+}
+.form__notification--error {
+  color: #df1313;
+}
+.form .validation--error {
+  border: 2px solid #df1313;
+  margin: -1px;
+}
+.form .validation--ok {
+  border: 2px solid #55d400;
+  margin: -1px;
 }
 
 header {
@@ -616,7 +633,11 @@ header .guest-area {
   background: #43464B;
 }
 header .guest-area:hover {
+  cursor: pointer;
   background-color: #df1313;
+}
+header .guest-area:hover a {
+  color: #222222;
 }
 header .user-area {
   background: #ffff;

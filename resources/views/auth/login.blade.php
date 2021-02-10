@@ -7,26 +7,25 @@
         <!-- Session Status -->
         <x-auth-session-status  :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors  :errors="$errors" />
-
         <form method="POST" class="form" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
             <div class="form__group">
                 <x-label for="email" class="label" value="Email"/>
-
-                <x-input id="email" type="text" name="email" value="{{old('email')}}" autofocus />
+                <x-input id="email" class="{{ $errors->has('email') ? 'validation--error' : ''}}" type="text" name="email" value="{{old('email')}}" autofocus />
+                @error('email')
+                    <div class="form__notification form__notification--error">{{ $message }}</div>
+                @enderror
             </div>
 
             <!-- Password -->
             <div class="form__group">
                 <x-label for="password" value="Password" />
-
-                <x-input id="password" 
-                                type="password"
-                                name="password" />
+                <x-input id="password" class="{{ $errors->has('password') ? 'validation--error' : ''}}" type="password" name="password" />
+                @error('password')
+                    <div class="form__notification form__notification--error">{{ $message }}</div>
+                @enderror
             </div>
 
             <!-- Remember Me -->
@@ -37,7 +36,6 @@
                 </label>
             </div>
 
-            
             <button type="submit" class="btn btn-auth">
                 Login
             </button>
