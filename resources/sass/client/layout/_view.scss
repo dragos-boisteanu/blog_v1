@@ -16,8 +16,6 @@
 
     &__body {
         flex: 0 0 630px;
-        // max-width: 630px;
-
         .title {
 
         }
@@ -37,9 +35,7 @@
         .search-container {
             margin-top: 25px;
             position: relative;
-            // padding: 10px;
             border-radius: 3px;
-            // border: 1px solid #acacac;
     
             .search-form {
                 display: flex;

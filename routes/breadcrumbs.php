@@ -12,6 +12,11 @@ Breadcrumbs::for('category', function ($trail, $category) {
     $trail->push($category->name, route('category.show', $category->name));
 });
 
+Breadcrumbs::for('search', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Search', route('search'));
+});
+
 
 Breadcrumbs::for('post', function ($trail, $post) {
     $trail->parent('category', $post->category);
