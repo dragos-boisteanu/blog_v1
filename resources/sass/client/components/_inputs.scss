@@ -1,14 +1,17 @@
-input[type=text] {
+input[type=text],
+textarea {
     border: 1px solid #acacac;
     border-radius: 3px;
-    background: transparent;
+    background: white;
     padding: 7px;
-    font-size: 0.9rem;
+    font-size: 0.825rem;
 
     outline: none;
 
     &[name=q] {
        border: none;
     }
+
+    resize: vertical;
 }
 

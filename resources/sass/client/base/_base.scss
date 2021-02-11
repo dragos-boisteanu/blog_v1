@@ -10,6 +10,7 @@ html {
   height: 100vh;
   display: flex;
   justify-content: center;
+  min-width: 1000px;
 }
 
 /**
@@ -32,6 +33,7 @@ a {
   text-decoration: none;
 
   @include on-event {
+    cursor: pointer;
     color: $text-color;
     text-decoration: underline;
   }

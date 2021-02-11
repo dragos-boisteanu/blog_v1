@@ -346,6 +346,7 @@ html {
   height: 100vh;
   display: flex;
   justify-content: center;
+  min-width: 1000px;
 }
 
 /**
@@ -368,6 +369,7 @@ a {
   text-decoration: none;
 }
 a:hover, a:active, a:focus {
+  cursor: pointer;
   color: #222222;
   text-decoration: underline;
 }
@@ -509,6 +511,7 @@ body {
   border-bottom: 0;
 }
 .view__side .categories .list .item {
+  text-transform: uppercase;
   font-size: 0.9rem;
   margin: 5px 0;
 }
@@ -549,7 +552,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.form__group:first-of-type, .form__group:last-of-type {
+.form__group:first-of-type {
   margin: 0;
 }
 .form__group .label {
@@ -567,6 +570,9 @@ body {
 .form__group .input:focus {
   border: 2px solid #0097d3;
   margin: -1px;
+}
+.form__group--right-aligned {
+  align-items: flex-end;
 }
 .form__links {
   display: flex;
@@ -653,14 +659,42 @@ header .user-area:hover .dropdown__header .arrows .arrow-up {
 }
 
 footer {
-  flex: 0 0 200px;
+  flex: 0 0 auto;
   width: 100%;
+  padding: 0 50px;
+  background: #242424;
+}
+footer .links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
-  background: green;
+  flex-wrap: wrap;
+}
+footer .links .footer__category {
+  flex: 0 1 300px;
+}
+footer .links .title {
+  color: #ffff;
+}
+footer .links li a {
+  font-size: 0.725rem;
+  text-transform: uppercase;
+}
+footer .links li a:hover {
+  color: #ffff;
+  text-decoration: none;
+}
+footer .copyright {
+  margin-top: 50px;
+  font-size: 0.8rem;
+  padding: 25px;
+  text-align: center;
+  color: #ffff;
 }
 
+.posts {
+  margin-bottom: 50px;
+}
 .posts .posts-list .post {
   display: flex;
   flex-direction: column;
@@ -706,16 +740,23 @@ footer {
   color: #ffff;
   font-size: 1rem;
 }
+.btn-primary {
+  background: #004e6d;
+  color: #ffff;
+}
 
-input[type=text] {
+input[type=text],
+textarea {
   border: 1px solid #acacac;
   border-radius: 3px;
-  background: transparent;
+  background: white;
   padding: 7px;
-  font-size: 0.9rem;
+  font-size: 0.825rem;
   outline: none;
+  resize: vertical;
 }
-input[type=text][name=q] {
+input[type=text][name=q],
+textarea[name=q] {
   border: none;
 }
 

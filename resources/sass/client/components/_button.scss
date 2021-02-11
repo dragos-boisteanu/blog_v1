@@ -35,6 +35,11 @@
         font-size: 1rem;
     
     }
+
+    &-primary {
+        background: darken($blue, 20);
+        color: $white;
+    }
 }
 
 
