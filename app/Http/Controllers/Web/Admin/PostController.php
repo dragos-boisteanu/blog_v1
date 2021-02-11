@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Models\Post;
+use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -14,7 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all()->paginate(25);
+
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -24,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -33,9 +38,17 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $input = $request->all();
+
+        $input['user_id'] = Auth::id();
+
+        Post::create($input);
+
+        session()->flash('info', 'The post was deleted');
+
+        return view('admin.posts.index');
     }
 
     /**
@@ -46,7 +59,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.show', compact('posts'));
     }
 
     /**
@@ -57,7 +72,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -67,9 +84,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        if (! Gate::allows('update-post', $post)) {
+            abort(403);
+        }
+
+        $post->update($request->all());
+
+        session()->flash('info', 'The post was updated');
+
+        return view('admin.post.show', compact('post'));        
     }
 
     /**
@@ -80,6 +107,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::findOrFail($id)->delete();
+
+        session()->flash('info', 'The post was deleted');
+
+        return view('admin.posts.index');
     }
 }

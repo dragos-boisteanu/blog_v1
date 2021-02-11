@@ -26,7 +26,7 @@
         </ul>
         <div class="footer__category links__contact">
             <div class="title">
-                <h4>Contact</h4>
+                <h4>Contact us</h4>
             </div>
             <div>
                <form>

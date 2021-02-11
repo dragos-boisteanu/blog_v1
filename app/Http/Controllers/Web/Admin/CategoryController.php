@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -14,7 +17,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all()->orderBy('name')->paginate(25);
+
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -33,9 +38,18 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $input = $request->all();
+
+        $input['created_by'] = Auth::id();
+
+        Category::store($input);
+
+
+        session()->flash('info', 'Category created');
+
+        return view('admin.category.index');        
     }
 
     /**
@@ -46,7 +60,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);;
+
+        $posts = $category->posts()->orderBy('cread_at', 'desc')->simplePaginate(5);
+
+        return view('admin.category.show', compact('posts')); 
     }
 
     /**
@@ -57,7 +75,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -67,9 +87,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->name = $request->name;
+        $category->updated_by = Auth::id();
+
+        $category->save();
+
+        return view('admin.category.show', compact('category')); 
     }
 
     /**
@@ -80,6 +107,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id)->delete();
+
+        session()->flash('info', 'Category deleted');
+
+        return view('admin.category.index');
     }
 }

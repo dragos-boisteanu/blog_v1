@@ -17,8 +17,13 @@ class Post extends Model implements Viewable
 {
     use HasFactory, Sluggable, SoftDeletes, SluggableScopeHelpers, InteractsWithViews;
 
+    protected $fillable = [
+        'image_url',
+        'preview',
+        'content',
+    ];
 
-    protected $with = ['category'];
+    protected $with = ['category', 'user'];
 
     public function sluggable(): array
     {
@@ -37,7 +42,7 @@ class Post extends Model implements Viewable
 
     public function user()
     {
-        return $this->belongsTo('Models/User');
+        return $this->belongsTo(User::class);
     }
 
     public function category()
