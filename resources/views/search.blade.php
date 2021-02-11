@@ -10,8 +10,7 @@
         </h2>
     @endif
     
-
-    @if(isset($posts) && !empty($posts))
+    @if($posts->items() !== null && !empty($posts->items()))
         <div class="posts">
             <div class="posts">
                 <x-post-list :posts="$posts"></x-post-list>
@@ -22,8 +21,5 @@
             No posts fond !
         </div>
     @endif
-
-
-   
 
 </x-app-layout>

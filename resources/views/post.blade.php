@@ -3,7 +3,9 @@
         {{ Breadcrumbs::render('post', $post) }}
     </x-slot>
 
-    <div class="post___header post__header--not-link">
+    <x-post-header :post="$post" class="post__header--not-link"></x-post-header>
+
+    {{-- <div class="post___header post__header--not-link">
         <svg class='hideSvgSoThatItSupportsFirefox'>
             <filter id='sharpBlur'>
               <feGaussianBlur stdDeviation='3'></feGaussianBlur>
@@ -30,13 +32,13 @@
         </div>
         <div class="views-counter">
             {{ $post->viewsCount() }} 
-            @if( $post->viewsCount() >= 0) 
+            @if( $post->viewsCount() == 1) 
                 view
             @else 
                 views 
             @endif
         </div>
-    </div>
+    </div> --}}
     <div class="post__content">
         {!! nl2br(e($post->content )) !!}
     </div>

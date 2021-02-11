@@ -16,11 +16,6 @@ class SearchController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // $posts = Post::where(function($query) use ($request) {
-        //     if( ($q = $request->q) ) {
-        //         $query-
-        //     }
-        // })->orderBy('created_at', 'desc')->simplePaginate(5);
 
         $searchData = $request->q;
 
@@ -28,8 +23,7 @@ class SearchController extends Controller
             $posts = Post::where('title', 'like', '%'. $searchData . '%')->orderBy('created_at', 'desc')->simplePaginate(5);
         } else {
             $posts = null;
-        }
-       
+        }       
 
         return view('search', compact('posts', 'searchData'));
     }

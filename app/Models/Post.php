@@ -29,11 +29,7 @@ class Post extends Model implements Viewable
         ];
     }
 
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('d-M-YYYY');
-    }
-
+   
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('d-M-Y');

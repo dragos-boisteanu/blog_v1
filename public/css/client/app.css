@@ -673,81 +673,6 @@ footer {
 .posts .posts-list .post:first-of-type {
   margin-top: 0;
 }
-.posts .posts-list .post .header {
-  position: relative;
-  width: 100%;
-  height: 360px;
-}
-.posts .posts-list .post .header:hover .details-container .details .title {
-  text-decoration: underline;
-}
-.posts .posts-list .post .header .hideSvgSoThatItSupportsFirefox {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-.posts .posts-list .post .header .image {
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: url("#sharpBlur");
-}
-.posts .posts-list .post .header .details-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.posts .posts-list .post .header .details-container .details {
-  color: #ffff;
-  width: 65%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-}
-.posts .posts-list .post .header .details-container .details .title {
-  font-size: 1.6rem;
-}
-.posts .posts-list .post .header .details-container .details .author {
-  font-size: 1rem;
-}
-.posts .posts-list .post .header .details-container .details .date {
-  font-size: 0.6rem;
-}
-.posts .posts-list .post .header .category-name,
-.posts .posts-list .post .header .views-counter {
-  font-weight: 600;
-  font-size: 0.7rem;
-  color: #fff;
-  padding: 5px;
-  position: absolute;
-  text-align: center;
-}
-.posts .posts-list .post .header .category-name {
-  background: #ff7301;
-  left: 0px;
-  top: 0px;
-  width: 60px;
-}
-.posts .posts-list .post .header .views-counter {
-  right: 0px;
-  bottom: 0px;
-  background: #df1313;
-}
 .posts .posts-list .post .preview {
   padding: 15px 0;
   font-size: 0.9rem;
@@ -895,9 +820,9 @@ input[type=text][name=q] {
   width: 60px;
 }
 .post___header .views-counter {
-  right: 0px;
-  bottom: 0px;
-  background: #df1313;
+  right: 10px;
+  bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .header__dropdown {

@@ -1,111 +1,110 @@
-.post {
-    &___header {
-        position: relative;
+.post___header {
+    position: relative;
 
-        width: 100%;
-        height: 360px;
+    width: 100%;
+    height: 360px;
 
-        &:hover {
-            .details-container {
-                .details {
-                    .title {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }       
-        
-        &.post__header--not-link {
-            .details-container {
-                .details {
-                    .title {
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-
-        .hideSvgSoThatItSupportsFirefox {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-
-        .image {
-            height: 100%;
-            width: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: url("#sharpBlur");
-        }
-
+    &:hover {
         .details-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
+            .details {
+                .title {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }       
+    
+    &.post__header--not-link {
+        .details-container {
+            .details {
+                .title {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .hideSvgSoThatItSupportsFirefox {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .image {
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: url("#sharpBlur");
+    }
+
+    .details-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+
+        .details {
+
+            color: rgb(255, 255, 255);
+
+            width: 65%;
+            height: 50%;
+
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             align-items: center;
-           
 
-            .details {
+            text-align: center;
 
-                color: rgb(255, 255, 255);
+            .title {
+                font-size: 1.6rem;
+            }
 
-                width: 65%;
-                height: 50%;
+            .author {
+                font-size: 1rem;
+            }
 
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-
-                text-align: center;
-
-                .title {
-                    font-size: 1.6rem;
-                }
-
-                .author {
-                    font-size: 1rem;
-                }
-
-                .date {
-                    font-size: 0.6rem;
-                }
+            .date {
+                font-size: 0.6rem;
             }
         }
+    }
 
-        .category-name,
-        .views-counter {
-            font-weight: 600;
-            font-size: .7rem;
-            color: #fff;
-            padding: 5px;
-            position: absolute;
-            text-align: center;
-            
-        }
+    .category-name,
+    .views-counter {
+        font-weight: 600;
+        font-size: .7rem;
+        color: #fff;
+        padding: 5px;
+        position: absolute;
+        text-align: center;
+        
+    }
 
-        .category-name {
-            background: rgb(255, 115, 1);
-            left: 0px;
-            top: 0px;
-            width: 60px;
-        }
+    .category-name {
+        background: rgb(255, 115, 1);
+        left: 0px;
+        top: 0px;
+        width: 60px;
+    }
 
-        .views-counter {
-            right: 0px;
-            bottom: 0px;
-            background: rgb(223, 19, 19);
-        }
+    .views-counter {
+        right: 10px;
+        bottom: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        // background: rgb(223, 19, 19);
     }
 }
