@@ -1,17 +1,29 @@
-input[type=text],
-textarea {
-    border: 1px solid #acacac;
-    border-radius: 3px;
-    background: white;
-    padding: 7px;
-    font-size: 0.825rem;
-
+input,
+textarea,
+select {
     outline: none;
+    border-radius: 3px;
+    border: 1px solid #00000033;   
+    padding: 7px;
+    font-size: 0.9rem;
+
+    &:focus {
+        border: 2px solid $blue;
+        margin: -1px;
+    }
 
     &[name=q] {
        border: none;
     }
 
     resize: vertical;
+}
+
+select {
+    text-transform: uppercase;
+
+    option {
+        text-transform: uppercase !important;
+    }
 }
 

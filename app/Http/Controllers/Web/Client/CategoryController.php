@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function __invoke($category)
+    public function show($category)
     {
         $category = Category::where('name', $category)->first();
 

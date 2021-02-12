@@ -15,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::namespace('Web\Client')->group(function () {
-    Route::get('/', 'HomeController')->name('home');
-    Route::get('/search', 'SearchController')->name('search');
-    Route::get('/{category}/{slug}', 'PostController')->name('post.show');
-    Route::get('/{category}', 'CategoryController')->name('category.show');
 
-});
 
 Route::middleware(['auth'])->group(function() {
     Route::namespace('Web\Client')->group(function () {
@@ -37,23 +31,23 @@ Route::middleware(['auth'])->group(function() {
         Route::namespace('Web\Admin')->group(function () {
 
             Route::prefix('dashboard')->group(function () { 
-                Route::get('/', 'DashboardController')->name('dashboard.index');
+                Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
                 Route::prefix('post')->group(function () { 
                     Route::get('/', 'PostController@index')->name('admin-post.index');
-                    Route::get('/', 'PostController@create')->name('admin-post.create');
+                    Route::get('/create', 'PostController@create')->name('admin-post.create');
                     Route::post('/', 'PostController@store')->name('admin-post.store');
                     Route::patch('/', 'PostController@update')->name('admin-post.update');
     
                     Route::get('/{id}', 'PostController@show')->name('admin-post.show');
-                    Route::get('/{id}', 'PostController@edit')->name('admin-post.edit');
+                    Route::get('/{id}/edit', 'PostController@edit')->name('admin-post.edit');
     
                     Route::delete('/{id}', 'PostController@destroy')->name('admin-post.delete');
                 });
     
                 Route::prefix('users')->group(function () { 
                     Route::get('/', 'UserController@index')->name('admin-user.index');
-                    Route::get('/', 'UserController@create')->name('admin-user.create');
+                    Route::get('/create', 'UserController@create')->name('admin-user.create');
                     Route::post('/', 'UserController@store')->name('admin-user.store');
                     Route::patch('/', 'UserController@update')->name('admin-user.update');
     
@@ -65,7 +59,7 @@ Route::middleware(['auth'])->group(function() {
     
                 Route::prefix('categories')->group(function () { 
                     Route::get('/', 'CategoryController@index')->name('admin-category.index');
-                    Route::get('/', 'CategoryController@create')->name('admin-category.create');
+                    Route::get('/create', 'CategoryController@create')->name('admin-category.create');
                     Route::post('/', 'CategoryController@store')->name('admin-category.store');
                     Route::patch('/', 'CategoryController@update')->name('admin-category.update');
     
@@ -77,7 +71,7 @@ Route::middleware(['auth'])->group(function() {
     
                 Route::prefix('roles')->group(function () { 
                     Route::get('/', 'RoleController@index')->name('admin-role.index');
-                    Route::get('/', 'RoleController@create')->name('admin-role.create');
+                    Route::get('/create', 'RoleController@create')->name('admin-role.create');
                     Route::post('/', 'RoleController@store')->name('admin-role.store');
                     Route::patch('/', 'RoleController@update')->name('admin-role.update');
     
@@ -91,4 +85,12 @@ Route::middleware(['auth'])->group(function() {
            
         });
     });
+});
+
+Route::namespace('Web\Client')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/search', 'SearchController@index')->name('search');
+    Route::get('/{category}/{slug}', 'PostController@show')->name('post.show');
+    Route::get('/{category}', 'CategoryController@show')->name('category.show');
+
 });

@@ -13,7 +13,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke()
+    public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->simplePaginate(5);
 

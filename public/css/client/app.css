@@ -156,8 +156,6 @@ select,
 textarea {
   font-family: inherit;
   /* 1 */
-  font-size: 100%;
-  /* 1 */
   line-height: 1.15;
   /* 1 */
   margin: 0;
@@ -172,16 +170,6 @@ button,
 input {
   /* 1 */
   overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-button,
-select {
-  /* 1 */
-  text-transform: none;
 }
 
 /**
@@ -560,19 +548,13 @@ body {
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
-.form__group .input {
-  outline: none;
-  border-radius: 3px;
-  border: 1px solid #00000033;
-  padding: 5px;
-  font-size: 1rem;
-}
-.form__group .input:focus {
-  border: 2px solid #0097d3;
-  margin: -1px;
-}
 .form__group--right-aligned {
   align-items: flex-end;
+}
+.form__group--space-between-h {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .form__links {
   display: flex;
@@ -744,20 +726,38 @@ footer .copyright {
   background: #0073a0;
   color: #ffff;
 }
+.btn-danger {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #df1313;
+}
 
-input[type=text],
-textarea {
-  border: 1px solid #acacac;
-  border-radius: 3px;
-  background: white;
-  padding: 7px;
-  font-size: 0.825rem;
+input,
+textarea,
+select {
   outline: none;
+  border-radius: 3px;
+  border: 1px solid #00000033;
+  padding: 7px;
+  font-size: 0.9rem;
   resize: vertical;
 }
-input[type=text][name=q],
-textarea[name=q] {
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #0097d3;
+  margin: -1px;
+}
+input[name=q],
+textarea[name=q],
+select[name=q] {
   border: none;
+}
+
+select {
+  text-transform: uppercase;
+}
+select option {
+  text-transform: uppercase !important;
 }
 
 .pagination {

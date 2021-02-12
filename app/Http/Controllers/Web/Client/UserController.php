@@ -2,31 +2,24 @@
 
 namespace App\Http\Controllers\Web\Client;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user = User::findOrFail(Auth::id());
+
+        return view('user', compact('user'));
     }
 
     /**
@@ -36,9 +29,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::findOrFail(Auth::id());
+        
+        $user->update($request->all());
+
+        session()->flash('info', 'Your details has been updated');
+
+        return view('user', compact('user'));
     }
 
     /**
@@ -49,6 +48,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail(Auth::id())->delete();
+        Auth::logout();
+
+        session()->flash('info', 'Your account has been deleted');
+        return view('home');
     }
 }

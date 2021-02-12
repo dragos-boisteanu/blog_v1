@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->paginate(25);
+        $posts = Post::paginate(25);
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.post.index', compact('posts'));
     }
 
     /**
@@ -29,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.post.create', compact('categories'));
     }
 
     /**
@@ -48,7 +50,7 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return view('admin.posts.index');
+        return view('admin.post.index');
     }
 
     /**
@@ -61,7 +63,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('admin.posts.show', compact('posts'));
+        return view('admin.post.show', compact('posts'));
     }
 
     /**
@@ -73,8 +75,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        
+        return view('admin.post.edit', compact('post', 'categories'));
     }
 
     /**
@@ -87,10 +90,12 @@ class PostController extends Controller
     public function update(PostRequest $request, $id)
     {
         $post = Post::findOrFail($id);
-
+        
         if (! Gate::allows('update-post', $post)) {
             abort(403);
         }
+
+        dd('after');
 
         $post->update($request->all());
 
@@ -111,6 +116,6 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return view('admin.posts.index');
+        return view('admin.post.index');
     }
 }

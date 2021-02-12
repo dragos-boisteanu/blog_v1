@@ -13,7 +13,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($category, $slug)
+    public function show($category, $slug)
     {
         $post = Post::findBySlugOrFail($slug);
 

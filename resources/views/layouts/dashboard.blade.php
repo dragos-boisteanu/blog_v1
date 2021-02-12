@@ -11,14 +11,46 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link href="{{ asset(mix('css/admin/app.css')) }}" rel="stylesheet">
-
+        <link href="{{ asset(mix('css/client/app.css')) }}" rel="stylesheet">
+        <link href="{{ asset(mix('css/dashboard/app.css')) }}" rel="stylesheet">
+        
         <!-- Scripts -->
-        <script src="{{ asset(mix('js/admin/app.js')) }}" defer></script>
+        <script src="{{ asset(mix('js/client/app.js')) }}" defer></script>
+        <script src="{{ asset(mix('js/dashboard/app.js')) }}" defer></script>
+
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+        <div class="view dashboard-view">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{route('dashboard.index')}}">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin-post.index')}}">Posts</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin-user.index')}}">Users</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin-category.index')}}">Categories</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="darshboard__content">
+                <header>
+                    header
+                </header>
+                <main class="view__body">
+                    <div>
+                        {{ $breadcrumb }}
+                    </div>    
+                    <div class="content">
+                        {{ $slot }}
+                    </div>
+                </main>
+            </div>
+            
         </div>
     </body>
 </html>

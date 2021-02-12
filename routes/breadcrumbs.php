@@ -22,3 +22,26 @@ Breadcrumbs::for('post', function ($trail, $post) {
     $trail->parent('category', $post->category);
     $trail->push($post->title, route('post.show', ['category'=>$post->category->name, 'slug'=>$post->slug]));
 });
+
+
+Breadcrumbs::for('dashboard', function ($trail) {
+    $trail->push('Dashboard', route('dashboard.index'));
+});
+
+
+Breadcrumbs::for('admin-posts', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Posts list', route('admin-post.index'));
+});
+
+Breadcrumbs::for('admin-post.create', function ($trail) {
+    $trail->parent('admin-posts');
+    $trail->push('Create new post', route('admin-post.create'));
+});
+
+
+Breadcrumbs::for('admin-posts.edit', function ($trail, $post) {
+    $trail->parent('admin-posts');
+    $trail->push('Edit: ' . 'ID ' . $post->id . ' - ' . $post->title, route('admin-post.edit', ['id'=>$post->id]));
+});
+

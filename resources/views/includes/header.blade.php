@@ -23,16 +23,19 @@
                 <div class="dropdown__content">
                     <ul class="list">
                         <li>
-                            <a href="/">Account</a>
+                            <a href="{{ route('client-user.edit')}}">Account</a>
                         </li>
                         <li>
-                            <a href="/">Dashboard</a>
+                            <a href="{{ route('dashboard.index')}}">Dashboard</a>
                         </li>
                         <li>
-                            <a href="/">Read later</a>
+                            <a href="/read-later">Read later</a>
                         </li>
                         <li>
-                            <a href="/">Logout</a>
+                            <a id="logout" href="/">Logout</a>
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -50,28 +53,40 @@
    
 </header>
 
-{{-- <script>
-    let displayDropdownContent = false;
+<script>
+    // let displayDropdownContent = false;
 
-    const headerDropdown = document.querySelector('.header__dropdown');
-    const dropdownContent = document.querySelector('.dropdown__content');
+    // const headerDropdown = document.querySelector('.header__dropdown');
+    // const dropdownContent = document.querySelector('.dropdown__content');
 
-    headerDropdown.addEventListener('click', function() {
-        if(!displayDropdownContent) {
-            dropdownContent.style.display = "block"
-            displayDropdownContent = true;
-        }else {
-            dropdownContent.style.display = "none"
-            displayDropdownContent = false;
-        }
-    });
+    // headerDropdown.addEventListener('click', function() {
+    //     if(!displayDropdownContent) {
+    //         dropdownContent.style.display = "block"
+    //         displayDropdownContent = true;
+    //     }else {
+    //         dropdownContent.style.display = "none"
+    //         displayDropdownContent = false;
+    //     }
+    // });
 
-    window.onclick = function(event) {
-        if (event.target.id != 'header-dropdown' && !headerDropdown.contains(event.target)) {
-            if(displayDropdownContent) {
-                dropdownContent.style.display = "none";
-                displayDropdownContent = false;
-            }            
-        }
+    // window.onclick = function(event) {
+    //     if (event.target.id != 'header-dropdown' && !headerDropdown.contains(event.target)) {
+    //         if(displayDropdownContent) {
+    //             dropdownContent.style.display = "none";
+    //             displayDropdownContent = false;
+    //         }            
+    //     }
+    // }
+
+    const logout = document.getElementById('logout');
+    const logoutForm = document.getElementById('logout-form');
+
+    if(logout) {
+        logout.addEventListener('click', (e) => {
+            e.preventDefault();
+            logoutForm.submit();
+        })
     }
-</script> --}}
+    
+
+</script>

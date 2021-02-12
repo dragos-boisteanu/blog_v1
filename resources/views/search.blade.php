@@ -10,7 +10,7 @@
         </h2>
     @endif
     
-    @if($posts->items() !== null && !empty($posts->items()))
+    @if( isset($posts) && $posts->items() !== null && !empty($posts->items()))
         <div class="posts">
             <div class="posts">
                 <x-post-list :posts="$posts"></x-post-list>

@@ -24,7 +24,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence(6, true),
             'image_url' => $this->faker->imageUrl(640,480), 
-            'content' => $this->faker->paragraphs(4, false),
+            'preview' => $this->faker->text(100),
+            'content' => $this->faker->paragraphs(4, true),
             'user_id' => $this->faker->numberBetween(1, 2),
             'category_id' => $this->faker->numberBetween(1, 4),
             'created_at'=> now(),
