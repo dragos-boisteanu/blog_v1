@@ -7,7 +7,7 @@
         Posts list
     </h1>
 
-    <table>
+    <table class="dashboard-card">
         <thead>
             <tr>
                 <th>

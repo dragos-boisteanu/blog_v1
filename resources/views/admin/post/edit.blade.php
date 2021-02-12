@@ -3,6 +3,10 @@
         {{ Breadcrumbs::render('admin-posts.edit', $post) }}
     </x-slot>
 
+    <h1>
+        Edit post
+    </h1>
+
     <div class="post-create">
         <div class="dashboard-card form-container form-container-dashboard">
             <form method="PUT" action="{{ route('admin-post.update') }}">
