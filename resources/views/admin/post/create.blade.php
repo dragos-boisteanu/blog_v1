@@ -8,7 +8,7 @@
     </h1>
 
     <div class="post-create">
-        <div class="form-container form-container-dashboard">
+        <div class="dashboard-card form-container form-container-dashboard">
             <form method="POST" action="{{ route('admin-post.store') }}">
                 @csrf
     
@@ -45,7 +45,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="image-container">
+        <div class="dashboard-card image-container" style="display: none">
             <img id="post-image" src=""/>
         </div>
 
@@ -58,12 +58,16 @@
 <script>
     const imageLinkInput = document.getElementById('image-link');
     const postImage = document.getElementById('post-image');
+    const imageContainer = document.querySelector('.image-container');
 
     const showImageFromLink = () => {
         postImage.src = imageLinkInput.value;
+        if(imageContainer.style.display === 'none') {
+            imageContainer.style.display = '';
+        }else {
+            imageContainer.style.display = 'none';
+        }
     }
-
-    console.log(imageLinkInput.value)
 
     if(imageLinkInput.value.length > 0) {
         showImageFromLink();

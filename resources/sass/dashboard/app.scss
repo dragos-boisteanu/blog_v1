@@ -21,11 +21,13 @@
   'layout/header',
   'layout/footer',
   'layout/dashboard-view',
-  'layout/form';
+  'layout/form',
+  'layout/side-nav';
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/card';
 
 // 6. Page-specific styles
 @import

@@ -7,10 +7,13 @@
 
     .darshboard__content {
         width: 100%;
+        background: $dashboard-background;
 
         .view__body {
             width: 100%;
             flex: auto;
+
+           
         }
     }
 

@@ -1,3 +1,26 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+
+header {
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    padding: 0 5px;
+
+    .header__icon {
+        padding: 7px 14px;
+        border-left: 1px solid lighten($nav-bar-text, 15);
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            fill: $nav-bar-text;
+        }
+    }
+  
+}

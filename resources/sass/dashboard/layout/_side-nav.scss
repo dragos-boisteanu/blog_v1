@@ -1,0 +1,50 @@
+.dashboard-side-nav {
+    flex: 0 0 200px;
+
+    background: #333A4D;
+
+    .nav__header {
+        height: 25px;
+    }
+    .nav__list {
+        
+        .nav__item {
+      
+            border-top: 1px solid $nav-bar-border;
+
+            &:last-of-type{
+                border-bottom: 1px solid $nav-bar-border;
+            }
+           
+            .nav__link {
+                display: flex;
+                align-items: center;
+
+                color: $nav-bar-text;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                padding: 15px;
+
+                border-left: 2px solid transparent;
+
+                font-weight: 500;
+
+                &:hover {
+                    background-color: $nav-bar-selected;
+                    color: $white;
+                    text-decoration: none;
+
+                    svg {
+                        fill: $white;
+                    }
+                }
+
+                svg {
+                    fill: $nav-bar-text;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+}
