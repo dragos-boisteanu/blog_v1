@@ -39,6 +39,15 @@
     &-primary {
         background: darken($blue, 10);
         color: $white;
+
+        &:hover {
+            
+        }
+    }
+
+    &-danger {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        color: $red;
     }
 }
 
