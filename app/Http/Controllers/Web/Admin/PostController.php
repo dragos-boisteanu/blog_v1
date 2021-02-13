@@ -91,17 +91,18 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         
-        if (! Gate::allows('update-post', $post)) {
+        if (!Gate::allows('update-post', $post)) {
             abort(403);
         }
 
-        dd('after');
-
         $post->update($request->all());
 
+
+        $post = $post->refresh();
+        
         session()->flash('info', 'The post was updated');
 
-        return view('admin.post.show', compact('post'));        
+        return view('admin.post.edit', compact('post'));        
     }
 
     /**

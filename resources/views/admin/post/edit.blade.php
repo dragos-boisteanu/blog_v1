@@ -9,27 +9,40 @@
 
     <div class="post-create">
         <div class="dashboard-card form-container form-container-dashboard">
-            <form method="PUT" action="{{ route('admin-post.update') }}">
+            <form method="POST" action="{{ route('admin-post.update', ['id'=>$post->id]) }}">
                 @csrf
-    
+                @method('PUT')
+
                 <div class="form__group">
                     <label class="label">Title</label>
                     <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{ $post->title }}"  placeholder="Post title" autofocus />
+                    @error('title')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
                     <label class="label">Image Link</label>
-                    <x-input id="image-link" class="{{ $errors->has('image-link') ? 'validation--error' : '' }}" type="text" name="image_url" value="{{ $post->image_url}}" placeholder="Post image link"/>
+                    <x-input id="image-link" class="{{ $errors->has('image_url') ? 'validation--error' : '' }}" type="text" name="image_url" value="{{ $post->image_url}}" placeholder="Post image link"/>
+                    @error('image_url')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
                     <label class="label">Preview</label>
                     <textarea id="content" name="preview" class="{{ $errors->has('preview') ? 'validation--error' : '' }}" placeholder="Post preview">{{ $post->preview }}</textarea> 
+                    @error('preview')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
                     <label class="label">Content</label>
                     <textarea id="content" name="content" class="{{ $errors->has('content') ? 'validation--error' : '' }}" placeholder="Post content"> {{ $post->content }}</textarea> 
+                    @error('content')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
@@ -40,6 +53,9 @@
                             <option value="{{ $category->id }}" {{ $post->category_id === $category->id ? 'selected' : ''}}> {{ $category->name }} </option>
                         @endforeach
                     </select>
+                    @error('category_id')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group form__group--space-between-h">

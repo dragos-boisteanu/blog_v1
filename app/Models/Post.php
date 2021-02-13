@@ -18,9 +18,11 @@ class Post extends Model implements Viewable
     use HasFactory, Sluggable, SoftDeletes, SluggableScopeHelpers, InteractsWithViews;
 
     protected $fillable = [
+        'title',
         'image_url',
         'preview',
         'content',
+        'category_id'
     ];
 
     protected $with = ['category', 'user'];

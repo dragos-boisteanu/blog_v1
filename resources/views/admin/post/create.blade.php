@@ -15,21 +15,33 @@
                 <div class="form__group">
                     <label class="label">Title</label>
                     <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{old('title')}}"  placeholder="Post title" autofocus />
-                </div>
+                    @error('title')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
+                    </div>
     
                 <div class="form__group">
                     <label class="label">Image Link</label>
-                    <x-input id="image-link" class="{{ $errors->has('image-link') ? 'validation--error' : '' }}" type="text" name="image_url" value="{{old('image_url')}}" placeholder="Post image link"/>
+                    <x-input id="image-link" class="{{ $errors->has('image_url') ? 'validation--error' : '' }}" type="text" name="image_url" value="{{old('image_url')}}" placeholder="Post image link"/>
+                    @error('image_url')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
                     <label class="label">Preview</label>
                     <textarea id="content" name="preview" class="{{ $errors->has('preview') ? 'validation--error' : '' }}" placeholder="Post preview">{{ old('preview') }}</textarea> 
+                    @error('preview')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form__group">
                     <label class="label">Content</label>
                     <textarea id="content" name="content" class="{{ $errors->has('content') ? 'validation--error' : '' }}" placeholder="Post content">{{ old('content') }}</textarea> 
+                    @error('content')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <div class="form__group">
@@ -40,6 +52,9 @@
                             <option value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                         @endforeach
                     </select>
+                    @error('category_id')
+                        <div class="form__notification form__notification--error">{{ $message }}</div>
+                    @enderror
                 </div>
     
                 <button type="submit" class="btn btn-primary">Submit</button>
