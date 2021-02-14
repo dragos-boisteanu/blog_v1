@@ -16,14 +16,22 @@
 
             <select name="author_id">
                 <option value="0" selected disabled>Select an author</option>
+                @foreach($authors as $authors)
+                    <option value="{{ $authors->id }}">{{ $authors->name }}</option>
+                @endforeach
             </select>
 
             <select name="category_id">
                 <option value="0" selected disabled>Select a category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
             </select>
 
             <select name="status">
                 <option value="0" selected disabled>Select a status</option>
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
             </select>
 
             <div class="form__group">

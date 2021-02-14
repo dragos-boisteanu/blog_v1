@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
@@ -19,8 +20,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::withTrashed()->paginate(15);
+        $categories = Category::all();
+        $authors = User::where('role_id', '1')->orWhere('role_id', '2')->get();
         
-        return view('admin.post.index', compact('posts'));
+        
+        return view('admin.post.index', compact('posts', 'categories', 'authors'));
     }
 
     /**
