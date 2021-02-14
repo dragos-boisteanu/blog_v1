@@ -330,12 +330,21 @@ template {
 /**
  * Set up a decent box model on the root element
  */
+* {
+  box-sizing: border-box;
+}
+
 html {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
   justify-content: center;
-  min-width: 1000px;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /**
@@ -344,12 +353,6 @@ html {
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 /**
  * Basic styles for links
  */
@@ -453,7 +456,6 @@ body {
 
 .view {
   flex: 1 1 auto;
-  min-width: 900px;
   max-width: 1000px;
   width: 65%;
   display: flex;
@@ -561,6 +563,13 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.form__group--center {
+  justify-content: center;
+  align-items: center;
+}
+.form__group--38-heigt {
+  height: 38px;
 }
 .form__links {
   display: flex;
@@ -740,30 +749,26 @@ footer .copyright {
 input,
 textarea,
 select {
+  --box-shadow-color: #00000033;
+  --box-shadow-size: 1px;
   outline: none;
   border-radius: 3px;
-  border: 1px solid #00000033;
-  padding: 7px;
+  border-color: transparent;
+  box-shadow: 0 0 0 var(--box-shadow-size) var(--box-shadow-color);
+  padding: 5px;
   font-size: 0.9rem;
   resize: vertical;
 }
 input:focus,
 textarea:focus,
 select:focus {
-  border: 2px solid #0097d3;
-  margin: -1px;
+  --box-shadow-color: #0097d3;
+  --box-shadow-size: 2px;
 }
 input[name=q],
 textarea[name=q],
 select[name=q] {
   border: none;
-}
-
-select {
-  text-transform: uppercase;
-}
-select option {
-  text-transform: uppercase !important;
 }
 
 .pagination {

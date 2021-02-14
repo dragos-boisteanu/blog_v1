@@ -1,8 +1,9 @@
 $nav-bar-background: #333A4D;
-$nav-bar-border: #272b38;
+$nav-bar-border: darken(#333A4D, 2);
 $nav-bar-sub: #3E445C;
 $nav-bar-text: #989DAB;
 $nav-bar-selected: #00ABD7;
+$nav-bar-sub-left-border: darken($nav-bar-selected, 5);
 
 $dashboard-background: #EEF3F6;
 

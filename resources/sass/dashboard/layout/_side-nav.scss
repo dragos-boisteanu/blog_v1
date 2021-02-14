@@ -1,11 +1,63 @@
 .dashboard-side-nav {
     flex: 0 0 200px;
-
+    
+    & * {
+        color: $nav-bar-text;
+    }
     background: #333A4D;
 
     .nav__header {
-        height: 25px;
+        .logo {
+            padding: 10px;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    height: 65%;
+                    width: 65%;
+                }
+            }
+        }
+
+        .user {
+            a {
+                padding: 25px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.9rem;
+                font-weight: 500;
+
+
+                &:hover {
+                    cursor: pointer;
+                    
+                    text-decoration: none;
+                    & * {
+                        color: $white;
+                    }
+                }
+            
+                .posts-count {
+                    font-size: 0.625rem;
+                    padding: 5px;
+                    border-radius: 3px;
+                    background: #262D3F;
+
+                }
+            }
+            
+        }
     }
+
     .nav__list {
         
         .nav__item {
@@ -16,11 +68,10 @@
                 border-bottom: 1px solid $nav-bar-border;
             }
            
-            .nav__link {
+            .item__header {
                 display: flex;
                 align-items: center;
-
-                color: $nav-bar-text;
+                  
                 font-size: 0.9rem;
                 text-transform: uppercase;
                 padding: 15px;
@@ -29,7 +80,18 @@
 
                 font-weight: 500;
 
+                svg {
+                    fill: $nav-bar-text;
+                    margin-right: 15px;
+                }
+
+                & * {
+                    color: inherit;
+                }
+
+
                 &:hover {
+                    cursor: pointer;
                     background-color: $nav-bar-selected;
                     color: $white;
                     text-decoration: none;
@@ -38,10 +100,68 @@
                         fill: $white;
                     }
                 }
+            }
 
+            &-submenu {
+
+                background: $nav-bar-sub;
+                text-transform: capitalize;
+                font-size: 0.9rem;
+
+                .submenu__item {
+                    border-left: 2px solid $nav-bar-sub-left-border;
+                    border-bottom: 1px solid $nav-bar-border;
+
+                    a {
+                        padding: 10px 10px 10px 65px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: left;
+                        column-gap: 15px;
+                        
+                        width: 100%;
+
+                        text-decoration: none;
+
+                        svg {
+                            fill: $nav-bar-text;
+                        }
+                    }
+
+
+                    &:last-of-type{
+                        border-bottom: 0;
+                    }
+
+                    & * {
+                        color: inherit;
+                    }
+
+                    &:hover {
+                        background-color: $nav-bar-selected;
+                        color: $white;
+                        text-decoration: none;
+    
+                        svg {
+                            fill: $white;
+                        }
+                    }                    
+                }
+
+            }
+
+
+            .selected {
+                background-color: $nav-bar-selected;
+                color: $white;
                 svg {
-                    fill: $nav-bar-text;
-                    margin-right: 15px;
+                    fill: $white;
+                }
+                a {
+                    svg {
+                        fill: $white;
+                    }
+                    
                 }
             }
         }

@@ -1,15 +1,20 @@
 input,
 textarea,
 select {
+
+    --box-shadow-color: #00000033;
+    --box-shadow-size: 1px;
+
     outline: none;
     border-radius: 3px;
-    border: 1px solid #00000033;   
-    padding: 7px;
+    border-color: transparent; 
+    box-shadow: 0 0 0 var(--box-shadow-size) var(--box-shadow-color);
+    padding: 5px;
     font-size: 0.9rem;
 
     &:focus {
-        border: 2px solid $blue;
-        margin: -1px;
+        --box-shadow-color: #0097d3;
+        --box-shadow-size: 2px;
     }
 
     &[name=q] {
@@ -19,11 +24,10 @@ select {
     resize: vertical;
 }
 
-select {
-    text-transform: uppercase;
+// select {
 
-    option {
-        text-transform: uppercase !important;
-    }
-}
+//     option {
+//         text-transform: uppercase !important;
+//     }
+// }
 

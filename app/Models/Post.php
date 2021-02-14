@@ -56,4 +56,8 @@ class Post extends Model implements Viewable
     {
         return views($this)->count();
     }
+
+    public function getStatus() {
+        return isset($this->deleted_at) ? false : true;
+    }
 }

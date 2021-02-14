@@ -27,6 +27,15 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        &--center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        &--38-heigt {
+            height: 38px;
+        }
     }
 
     &__links {

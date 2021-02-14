@@ -5,12 +5,23 @@
 /**
  * Set up a decent box model on the root element
  */
+
+ * {
+   box-sizing: border-box;
+ }
+
 html {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
   justify-content: center;
-  min-width: 1000px;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
 }
 
 /**
@@ -19,11 +30,6 @@ html {
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 
 /**
  * Basic styles for links

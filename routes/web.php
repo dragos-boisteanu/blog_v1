@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function() {
             Route::prefix('dashboard')->group(function () { 
                 Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
-                Route::prefix('post')->group(function () { 
+                Route::prefix('posts')->group(function () { 
                     Route::get('/', 'PostController@index')->name('admin-post.index');
                     Route::get('/create', 'PostController@create')->name('admin-post.create');
                     Route::post('/', 'PostController@store')->name('admin-post.store');
