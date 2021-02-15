@@ -151,14 +151,14 @@ header .header__icon svg {
 .dashboard-side-nav .nav__list .nav__item-submenu .submenu__item:hover svg {
   fill: #ffff;
 }
-.dashboard-side-nav .nav__list .nav__item .selected {
+.dashboard-side-nav .nav__list .selected {
   background-color: #00ABD7;
   color: #ffff;
 }
-.dashboard-side-nav .nav__list .nav__item .selected svg {
-  fill: #ffff;
+.dashboard-side-nav .nav__list .selected svg {
+  fill: #ffff !important;
 }
-.dashboard-side-nav .nav__list .nav__item .selected a svg {
+.dashboard-side-nav .nav__list .selected a svg {
   fill: #ffff;
 }
 

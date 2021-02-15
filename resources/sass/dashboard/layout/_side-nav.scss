@@ -150,22 +150,25 @@
                 }
 
             }
+        }
 
+        .selected {
+                
+            background-color: $nav-bar-selected;
+            color: $white;
 
-            .selected {
-                background-color: $nav-bar-selected;
-                color: $white;
+            svg {
+                fill: $white !important;
+            }
+
+            a {
                 svg {
                     fill: $white;
                 }
-                a {
-                    svg {
-                        fill: $white;
-                    }
-                    
-                }
+                
             }
         }
     }
+
 
 }
