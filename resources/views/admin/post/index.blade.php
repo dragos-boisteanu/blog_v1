@@ -64,13 +64,13 @@
         <div class="before-table-div">
             <div style="text-align: right; margin: 10px 0">
                 <select id="orderBy" style="padding: 2px">
-                    <option value="0" selected disabled>Order by</option>    
+                    <option value="0" disabled>Order by</option>    
                     <option value="1" {{ old('order_by') == 1 ? 'selected' : ''}}>Title asc</option>
                     <option value="2" {{ old('order_by') == 2 ? 'selected' : ''}}>Title desc</option>
                     <option value="3" {{ old('order_by') == 3 ? 'selected' : ''}}>Views asc</option>
                     <option value="4" {{ old('order_by') == 4 ? 'selected' : ''}}>Views desc</option>
                     <option value="5" {{ old('order_by') == 5 ? 'selected' : ''}}>Created at asc</option>
-                    <option value="6" {{ old('order_by') == 6 ? 'selected' : ''}}>Created at desc</option>
+                    <option value="6" {{ old('order_by') ==  6 || $order_by == 6  ? 'selected' : ''}}>Created at desc</option>
                 </select>
             </div>
             {{ $posts->appends(request()->all())->links() }}

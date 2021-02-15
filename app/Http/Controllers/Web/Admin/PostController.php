@@ -10,7 +10,6 @@ use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use PhpParser\Node\Expr\Cast\Array_;
 
 class PostController extends Controller
 {
@@ -57,7 +56,13 @@ class PostController extends Controller
            
         });
 
-        switch($request->order_by) {
+        if(!isset($request->order_by)) {
+            $order_by = 6;
+        }else {
+            $order_by = $request->order_by;
+        }
+
+        switch($order_by) {
             case 1: 
                 $orderBy = 'title';
                 $order = 'asc';
@@ -96,7 +101,7 @@ class PostController extends Controller
     
         $request->flash();
 
-        return view('admin.post.index', compact('posts', 'categories', 'authors'));
+        return view('admin.post.index', compact('posts', 'categories', 'authors', 'order_by'));
     }
 
     /**
