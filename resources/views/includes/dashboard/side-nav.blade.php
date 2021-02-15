@@ -6,7 +6,7 @@
         <div class="user">
             <a href="{{ route('client-user.edit') }}">
                 <div>
-                {{ Auth::user()->name }}
+                    {{ Auth::user()->name }}
                 </div>
                 <div class="posts-count">
                     545
