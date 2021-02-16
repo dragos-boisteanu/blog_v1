@@ -31,7 +31,7 @@
     
                 <div class="form__group">
                     <label class="label">Preview</label>
-                    <textarea id="content" name="preview" class="{{ $errors->has('preview') ? 'validation--error' : '' }}" placeholder="Post preview">{{ $post->preview }}</textarea> 
+                    <textarea  name="preview" class="{{ $errors->has('preview') ? 'validation--error' : '' }}" placeholder="Post preview">{{ $post->preview }}</textarea> 
                     @error('preview')
                         <div class="form__notification form__notification--error">{{ $message }}</div>
                     @enderror
@@ -77,6 +77,8 @@
 </x-dashboard-layout>
 
 <script>
+    CKEDITOR.replace( 'content' );
+
     const imageLinkInput = document.getElementById('image-link');
     const postImage = document.getElementById('post-image');
     const imageContainer = document.querySelector('.image-container');
@@ -104,4 +106,5 @@
         e.preventDefault;
         deleteForm.submit();
     })
+
 </script>
