@@ -45,3 +45,19 @@ Breadcrumbs::for('admin-posts.edit', function ($trail, $post) {
     $trail->push('Edit: ' . 'ID ' . $post->id . ' - ' . $post->title, route('admin-post.edit', ['id'=>$post->id]));
 });
 
+
+Breadcrumbs::for('admin-users', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Users list', route('admin-users.index'));
+});
+
+Breadcrumbs::for('admin-users.show', function ($trail, $user) {
+    $trail->parent('admin-posts');
+    $trail->push('User: ' . $user->name, route('admin-users.edit', ['id'=>$user->id]));
+});
+
+Breadcrumbs::for('admin-users.edit', function ($trail, $user) {
+    $trail->parent('admin-posts');
+    $trail->push('User: ' . $user->name, route('admin-users.edit', ['id'=>$user->id]));
+});
+

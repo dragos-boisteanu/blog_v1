@@ -131,7 +131,7 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return view('admin.post.index');
+        return redirect()->route('admin-posts.index');
     }
 
     /**
@@ -177,13 +177,10 @@ class PostController extends Controller
         }
 
         $post->update($request->all());
-
-
-        $post = $post->refresh();
         
         session()->flash('info', 'The post was updated');
 
-        return view('admin.post.edit', compact('post'));        
+        return redirect()->route('admin-posts.edit');       
     }
 
     /**
@@ -198,6 +195,6 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return view('admin.post.index');
+        return redirect()->route('admin-posts.index');
     }
 }
