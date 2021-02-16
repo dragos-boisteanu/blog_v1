@@ -15,6 +15,7 @@
         <link href="{{ asset(mix('css/dashboard/app.css')) }}" rel="stylesheet">
         
         <!-- Scripts -->
+        <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
         <script src="{{ asset(mix('js/client/app.js')) }}" defer></script>
         <script src="{{ asset(mix('js/dashboard/app.js')) }}" defer></script>
 
