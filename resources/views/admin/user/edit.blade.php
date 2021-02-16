@@ -3,6 +3,10 @@
         {{ Breadcrumbs::render('admin-users.edit', $user) }}
     </x-slot>
 
+    <h3>
+        User's details
+    </h3>
+    
     <div class="dashboard-card" style="width: 40%">
         <form method="POST" action="{{ route('admin-users.update', ['id'=>$user->id]) }}">
             @csrf

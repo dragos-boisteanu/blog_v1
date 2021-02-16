@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use DateTimeInterface;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -60,4 +60,5 @@ class Post extends Model implements Viewable
     public function getStatus() {
         return isset($this->deleted_at) ? false : true;
     }
+
 }

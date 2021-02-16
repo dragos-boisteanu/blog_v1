@@ -52,12 +52,12 @@ Breadcrumbs::for('admin-users', function ($trail) {
 });
 
 Breadcrumbs::for('admin-users.show', function ($trail, $user) {
-    $trail->parent('admin-posts');
+    $trail->parent('admin-users');
     $trail->push('User: ' . $user->name, route('admin-users.edit', ['id'=>$user->id]));
 });
 
 Breadcrumbs::for('admin-users.edit', function ($trail, $user) {
-    $trail->parent('admin-posts');
+    $trail->parent('admin-users');
     $trail->push('User: ' . $user->name, route('admin-users.edit', ['id'=>$user->id]));
 });
 

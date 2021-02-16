@@ -222,6 +222,22 @@ table .status--inactive {
   margin: 0;
 }
 
+.display-details {
+  width: 100%;
+  font-size: 0.8rem;
+}
+.display-details .detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ececee;
+}
+.display-details .detail__name {
+  font-weight: 500;
+}
+
 .dashboard-card {
   background-color: #ffff;
   border-radius: 5px;

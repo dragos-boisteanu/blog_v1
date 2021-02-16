@@ -180,7 +180,7 @@ class PostController extends Controller
         
         session()->flash('info', 'The post was updated');
 
-        return redirect()->route('admin-posts.edit');       
+        return redirect()->route('admin-posts.edit', $post->id);       
     }
 
     /**
