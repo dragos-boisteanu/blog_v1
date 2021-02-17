@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <ul id="users-submenu" class="nav__item-submenu">
-                    <li class="submenu__item @if(Route::is('admin-users.index')) selected @endif">
+                    <li class="submenu__item @if(Route::is('admin-users.index') || Route::is('admin-users.authors')) selected @endif">
                         <a href="{{route('admin-users.index')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
                                 <path d="M0 0h24v24H0z" fill="none"/>

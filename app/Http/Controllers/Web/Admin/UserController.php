@@ -19,6 +19,15 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
+       
+
+        if ($request->route()->getName() == 'admin-users.authors') {
+            $roleId = 2;
+        } else {
+            $roleId = 0;
+        }
+
         $query = User::where( function($query) use ($request) {
             if($id = $request->id) {
                 $query->where('id', $id);
@@ -34,9 +43,10 @@ class UserController extends Controller
 
             if($roleId = $request->role_id) {
                 $query->where('role_id', $roleId);
+            }else if ($request->route()->getName() == 'admin-users.authors') {
+                $query->where('role_id', 2);
             }
-
-
+    
             if($status = $request->status) {
                 if($status == 1) {
                     $query->whereNull('deleted_at');
@@ -110,7 +120,7 @@ class UserController extends Controller
 
         $request->flash();
 
-        return view('admin.user.index', compact('users', 'roles', 'order_by'));
+        return view('admin.user.index', compact('users', 'roles', 'order_by', 'roleId'));
     }
 
  

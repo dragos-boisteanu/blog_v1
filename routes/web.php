@@ -47,14 +47,16 @@ Route::middleware(['auth'])->group(function() {
     
                
                 Route::prefix('users')->group(function () { 
-                    Route::get('/{id}', 'UserController@show')->name('admin-users.show');
+                    Route::get('/user/{id}', 'UserController@show')->name('admin-users.show');
 
                     Route::middleware(['restrict-author'])->group( function() {
+                        Route::get('/authors', 'UserController@index')->name('admin-users.authors');
                         Route::get('/', 'UserController@index')->name('admin-users.index');
-                        Route::put('/{id}', 'UserController@update')->name('admin-users.update');
-                        Route::get('/{id}/edit', 'UserController@edit')->name('admin-users.edit');
+                        Route::put('/user/{id}', 'UserController@update')->name('admin-users.update');
+                        Route::get('/user/{id}/edit', 'UserController@edit')->name('admin-users.edit');
         
-                        Route::delete('/{id}', 'UserController@destroy')->name('admin-users.delete');
+                        Route::delete('/user/{id}', 'UserController@destroy')->name('admin-users.delete');
+                       
                     });
                 });                
     

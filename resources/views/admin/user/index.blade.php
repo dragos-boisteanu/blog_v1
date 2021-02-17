@@ -13,11 +13,11 @@
             <input type="text" name="id" placeholder="User id" value="{{ old('id') }}"/>
             <input type="text" name="name" placeholder="User name" value="{{ old('name') }}"/>
             <input type="text" name="email" placeholder="User email" value="{{ old('email') }}"/>
-
+            
             <select name="role_id">
                 <option value="0" selected disabled>Select an role</option>
                 @foreach($roles as $role)
-                    <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                    <option value="{{ $role->id }}" {{ old('role_id') == $role->id || $roleId == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
                 @endforeach
             </select>
 

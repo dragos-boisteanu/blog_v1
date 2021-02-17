@@ -266,16 +266,48 @@ table .status--inactive {
   margin: 0 5px;
 }
 
-.post-create {
-  display: flex;
-  align-items: flex-start;
-}
-.post-create .image-container {
-  margin-left: 50px;
-  height: 380px;
-  width: 600px;
-}
-.post-create .image-container img {
-  height: 100%;
+.dashboard-details {
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}
+.dashboard-details .detail-card {
+  position: relative;
+  min-width: 250px;
+  border-radius: 5px;
+  padding: 25px;
+  background-color: red;
+  color: #ffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+.dashboard-details .detail-card:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease-in-out;
+}
+.dashboard-details .detail-card:hover {
+  text-decoration: none;
+}
+.dashboard-details .detail-card:hover:after {
+  opacity: 1;
+}
+.dashboard-details .detail-card .value {
+  font-size: 3.5rem;
+}
+.dashboard-details .detail-card .name {
+  font-size: 1.5rem;
 }
