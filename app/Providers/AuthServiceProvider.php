@@ -40,6 +40,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('update-category', function (User $user) {
            return $user->role_id === 1;
         });
-    
+
+        Gate::define('show-users', function (User $user) {
+            return $user->role_id == 1;
+        });    
     }
 }

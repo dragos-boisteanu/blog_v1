@@ -339,6 +339,7 @@ html {
   height: 100vh;
   display: flex;
   justify-content: center;
+  min-width: 1350px;
 }
 
 body {
@@ -521,15 +522,14 @@ body {
 }
 .auth-card .logo {
   text-align: center;
-  height: 138px;
+  height: 200px;
   width: 384px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
 }
 .auth-card .logo img {
-  height: 65%;
+  height: 100%;
   width: 65%;
 }
 .auth-card .data {
@@ -652,7 +652,7 @@ header .user-area:hover .dropdown__header .arrows .arrow-down {
   display: none;
 }
 header .user-area:hover .dropdown__header .arrows .arrow-up {
-  display: none;
+  display: block;
 }
 
 footer {

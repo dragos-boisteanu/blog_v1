@@ -45,15 +45,18 @@ Route::middleware(['auth'])->group(function() {
                     Route::delete('/{id}', 'PostController@destroy')->name('admin-post.delete');
                 });
     
+               
                 Route::prefix('users')->group(function () { 
-                    Route::get('/', 'UserController@index')->name('admin-users.index');
-                    Route::put('/{id}', 'UserController@update')->name('admin-users.update');
-    
                     Route::get('/{id}', 'UserController@show')->name('admin-users.show');
-                    Route::get('/{id}/edit', 'UserController@edit')->name('admin-users.edit');
-    
-                    Route::delete('/{id}', 'UserController@destroy')->name('admin-users.delete');
-                });
+
+                    Route::middleware(['restrict-author'])->group( function() {
+                        Route::get('/', 'UserController@index')->name('admin-users.index');
+                        Route::put('/{id}', 'UserController@update')->name('admin-users.update');
+                        Route::get('/{id}/edit', 'UserController@edit')->name('admin-users.edit');
+        
+                        Route::delete('/{id}', 'UserController@destroy')->name('admin-users.delete');
+                    });
+                });                
     
                 Route::prefix('categories')->group(function () { 
                     Route::get('/', 'CategoryController@index')->name('admin-categories.index');

@@ -7,47 +7,45 @@
         User's details
     </h3>
 
-    <div class="dashboard-card" style="width: 40%">
-        <div class="display-details">
-            <div class="detail">
-                <div class="detail__name">
-                    Name
-                </div>
-                <div class="details__value">
-                    {{ $user->name}}
-                </div>
+    <div class="dashboard-card details-container">
+        <div class="detail">
+            <div class="detail__name">
+                Name
             </div>
-            <div class="detail">
-                <div class="detail__name">
-                    Email
-                </div>
-                <div class="details__value">
-                    {{ $user->email}}
-                </div>
+            <div class="details__value">
+                {{ $user->name}}
             </div>
-            <div class="detail">
-                <div class="detail__name">
-                    Role
-                </div>
-                <div class="details__value">
-                    {{ $user->role->name}}
-                </div>
+        </div>
+        <div class="detail">
+            <div class="detail__name">
+                Email
             </div>
-            <div class="detail">
-                <div class="detail__name">
-                    Posts count
-                </div>
-                <div class="details__value">
-                    {{ $user->postsCount }}
-                </div>
+            <div class="details__value">
+                {{ $user->email}}
             </div>
-            <div class="detail">
-                <div class="detail__name">
-                    Registered on
-                </div>
-                <div class="details__value">
-                    {{ $user->created_at}}
-                </div>
+        </div>
+        <div class="detail">
+            <div class="detail__name">
+                Role
+            </div>
+            <div class="details__value">
+                {{ $user->role->name}}
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail__name">
+                Posts count
+            </div>
+            <div class="details__value">
+                {{ $user->postsCount }}
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail__name">
+                Registered on
+            </div>
+            <div class="details__value">
+                {{ $user->created_at}}
             </div>
         </div>
     </div>   
@@ -101,7 +99,6 @@
             <input id="orderBy-reset" name="order_by" type="hidden"/>
         </form>
     </div>
-
 
     <div class="dashboard-card table-container">
         <div class="before-table-div">
