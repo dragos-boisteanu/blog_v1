@@ -11,7 +11,7 @@
         <form id="filter-form" class="filter" method="GET" action="{{ route('admin-users.index') }}">
 
             <input type="text" name="id" placeholder="User id" value="{{ old('id') }}"/>
-            <input type="text" name="nane" placeholder="User name" value="{{ old('name') }}"/>
+            <input type="text" name="name" placeholder="User name" value="{{ old('name') }}"/>
             <input type="text" name="email" placeholder="User email" value="{{ old('email') }}"/>
 
             <select name="role_id">

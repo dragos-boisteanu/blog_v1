@@ -48,7 +48,7 @@
                 {{ $user->created_at}}
             </div>
         </div>
-        @can('see-user')
+        @can('see-users')
             <div class="detail">
                 <div class="detail__name">
                 </div>

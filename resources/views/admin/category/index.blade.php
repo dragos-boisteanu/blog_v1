@@ -11,7 +11,7 @@
         <form id="filter-form" class="filter" method="GET" action="{{ route('admin-categories.index') }}">
 
             <input type="text" name="id" placeholder="Category id" value="{{ old('id') }}"/>
-            <input type="text" name="nane" placeholder="Category name" value="{{ old('name') }}"/>
+            <input type="text" name="name" placeholder="Category name" value="{{ old('name') }}"/>
         
             <div class="form__group form__group--center form__group--38-heigt">
                 <button type="submit" class="btn btn-primary">Filter</button>

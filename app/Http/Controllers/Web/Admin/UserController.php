@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -226,7 +227,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -234,7 +235,7 @@ class UserController extends Controller
 
         session()->flash('info', 'The user was updated');
 
-        return redirect()->route('admin-users.edit', $user->id);
+        return redirect()->route('admin-users.show', $user->id);
     }
 
     /**

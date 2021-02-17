@@ -71,20 +71,6 @@ Route::middleware(['auth'])->group(function() {
                         Route::delete('/{id}', 'CategoryController@destroy')->name('admin-categories.delete');
                     });
                 });
-    
-                Route::prefix('roles')->group(function () { 
-                    Route::middleware(['restrict-author'])->group( function() {
-                        Route::get('/', 'RoleController@index')->name('admin-roles.index');
-                        Route::get('/create', 'RoleController@create')->name('admin-roles.create');
-                        Route::post('/', 'RoleController@store')->name('admin-roles.store');
-                        Route::put('/{id}', 'RoleController@update')->name('admin-roles.update');
-        
-                        Route::get('/{id}', 'RoleController@show')->name('admin-roles.show');
-                        Route::get('/{id}/edit', 'RoleController@edit')->name('admin-roles.edit');
-        
-                        Route::delete('/{id}', 'RoleController@destroy')->name('admin-roles.delete');
-                    });
-                });
             });
            
         });

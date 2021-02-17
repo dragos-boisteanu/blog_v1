@@ -9,7 +9,7 @@
 
     <div class="post-create">
         <div class="dashboard-card form-container form-container-dashboard">
-            <form method="POST" action="{{ route('admin-post.store') }}">
+            <form method="POST" class="form" action="{{ route('admin-post.store') }}">
                 @csrf
     
                 <div class="form__group">
@@ -38,7 +38,10 @@
 
                 <div class="form__group">
                     <label class="label">Content</label>
-                    <textarea id="content" name="content" class="{{ $errors->has('content') ? 'validation--error' : '' }}" placeholder="Post content">{{ old('content') }}</textarea> 
+                    <div class="{{ $errors->has('content') ? 'validation--error' : '' }}">
+                        <textarea id="content" name="content"  placeholder="Post content">{{ old('content') }}</textarea> 
+                    </div>
+                    
                     @error('content')
                         <div class="form__notification form__notification--error">{{ $message }}</div>
                     @enderror
@@ -46,7 +49,7 @@
     
                 <div class="form__group">
                     <label class="label">Category</label>
-                    <select name="category_id">
+                    <select name="category_id" class="{{ $errors->has('category_id') ? 'validation--error' : '' }}">
                         <option selected disabled>Select category</option>
                         @foreach($categories as $category)  
                             <option value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : ''}}>{{ $category->name }}</option>

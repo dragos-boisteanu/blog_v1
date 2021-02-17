@@ -8,17 +8,23 @@
     </h3>
     
     <div class="dashboard-card details-container">
-        <form method="POST" action="{{ route('admin-users.update', ['id'=>$user->id]) }}">
+        <form method="POST" class="form" action="{{ route('admin-users.update', ['id'=>$user->id]) }}">
             @csrf
             @method('put')
             <div class="form__group">
                 <label class="label">Name</label>
-                <input type="text" name="name" value="{{ $user->name }}"/>
+                <input type="text" name="name" class="{{ $errors->has('name') ? 'validation--error' : '' }}" value="{{ $user->name }}"/>
+                @error('name')
+                    <div class="form__notification form__notification--error">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form__group">
                 <label class="label">Email</label>
-                <input type="text" name="email" value="{{ $user->email }}"/>
+                <input type="text" name="email" class="{{ $errors->has('email') ? 'validation--error' : '' }}" value="{{ $user->email }}"/>
+                @error('email')
+                    <div class="form__notification form__notification--error">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form__group">

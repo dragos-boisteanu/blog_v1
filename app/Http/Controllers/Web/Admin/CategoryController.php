@@ -19,7 +19,6 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-    
         $query = Category::where( function($query) use ($request) {
             if($id = $request->id) {
                 $query->where('id', $id);
@@ -85,8 +84,8 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-
-        Category::store($request->all());
+ 
+        Category::create($request->all());
 
         session()->flash('info', 'Category created');
 
@@ -210,8 +209,6 @@ class CategoryController extends Controller
       
         $category->update($request->all());
 
-       
-
         return redirect()->route('admin-categories.show', $category->id);
     }
 
@@ -227,6 +224,6 @@ class CategoryController extends Controller
 
         session()->flash('info', 'Category deleted');
 
-        return view('admin.category.index');
+        return redirect()->route('admin-categories.index');
     }
 }

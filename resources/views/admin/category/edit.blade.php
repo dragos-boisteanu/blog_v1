@@ -2,18 +2,17 @@
     <x-slot name="breadcrumb">
         {{ Breadcrumbs::render('admin-categories.edit', $category) }}
     </x-slot>
-
-    <h3>
-        Category's details
-    </h3>
     
     <div class="dashboard-card details-container">
-        <form method="POST" action="{{ route('admin-categories.update', ['id'=>$category->id]) }}">
+        <form method="POST" class="form" action="{{ route('admin-categories.update', ['id'=>$category->id]) }}">
             @csrf
             @method('put')
             <div class="form__group">
                 <label class="label">Name</label>
-                <input type="text" name="name" value="{{ $category->name }}"/>
+                <input type="text" name="name" class="{{ $errors->has('name') ? 'validation--error' : '' }}" value="{{ $category->name }}"/>
+                @error('name')
+                    <div class="form__notification form__notification--error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form__group form__group--space-between-h">
                 <button type="button" id="delete-btn" class="btn btn-danger">Delete</button>
