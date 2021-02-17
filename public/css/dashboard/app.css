@@ -36,7 +36,8 @@ header .header__icon svg {
 }
 
 .form-container-dashboard {
-  width: 600px;
+  max-width: 600px;
+  min-width: 400px;
 }
 
 .dashboard-side-nav {
@@ -238,6 +239,7 @@ table .status--inactive {
 }
 .details-container .detail:last-of-type {
   border-bottom: 0;
+  padding-bottom: 0px;
 }
 .details-container .detail__name {
   font-weight: 500;

@@ -87,7 +87,7 @@
                 </ul>
             </li>
             <li class="nav__item">
-                <a class="item__header" href="{{route('admin-categories.index')}}">
+                <div class="item__header @if(Route::is('admin-categories.*')) selected @endif">
                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
                         <g>
                             <rect fill="none" height="24" width="24"/>
@@ -97,9 +97,9 @@
                     <div>
                         Categories
                     </div>
-                </a>
+                </div>
                 <ul id="users-submenu" class="nav__item-submenu">
-                    <li class="submenu__item">
+                    <li class="submenu__item @if(Route::is('admin-categories.list')) selected @endif">
                         <a href="{{route('admin-categories.index')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
                                 <path d="M0 0h24v24H0z" fill="none"/>
@@ -107,6 +107,17 @@
                             </svg>
                             <div>
                                 List
+                            </div>
+                        </a>
+                    </li>
+                    <li class="submenu__item @if(Route::is('admin-categories.create')) selected @endif">
+                        <a href="{{route('admin-categories.create')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                            </svg>
+                            <div>
+                                Create
                             </div>
                         </a>
                     </li>

@@ -85,15 +85,12 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $input = $request->all();
 
-        $input['created_by'] = Auth::id();
-
-        Category::store($input);
+        Category::store($request->all());
 
         session()->flash('info', 'Category created');
 
-        return view('admin.category.index');        
+        return redirect()->route('admin-categories.index');       
     }
 
     /**
@@ -210,13 +207,12 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         $category = Category::findOrFail($id);
+      
+        $category->update($request->all());
 
-        $category->name = $request->name;
-        $category->updated_by = Auth::id();
+       
 
-        $category->save();
-
-        return view('admin.category.show', compact('category')); 
+        return redirect()->route('admin-categories.show', $category->id);
     }
 
     /**

@@ -74,6 +74,11 @@ Breadcrumbs::for('admin-categories', function ($trail) {
     $trail->push('Categories list', route('admin-categories.index'));
 });
 
+Breadcrumbs::for('admin-categories.create', function ($trail) {
+    $trail->parent('admin-categories');
+    $trail->push('Create category', route('admin-categories.create'));
+});
+
 Breadcrumbs::for('admin-categories.show', function ($trail, $category) {
     $trail->parent('admin-categories');
     $trail->push('Category: ' . $category->name, route('admin-categories.edit', ['id'=>$category->id]));
@@ -81,7 +86,7 @@ Breadcrumbs::for('admin-categories.show', function ($trail, $category) {
 
 Breadcrumbs::for('admin-categories.edit', function ($trail, $category) {
     $trail->parent('admin-categories');
-    $trail->push('Category: ' . $category->name, route('admin-categories.edit', ['id'=>$category->id]));
+    $trail->push('Edit category: ' . $category->name, route('admin-categories.edit', ['id'=>$category->id]));
 });
 
 

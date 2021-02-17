@@ -24,6 +24,13 @@
                 {{ $category->postsCount }}
             </div>
         </div>
+        <div class="detail">
+            <div class="detail__name">
+            </div>
+            <div class="details__value">
+                <a href="{{ route('admin-categories.edit', ['id'=>$category->id])}}">Edit</a>
+            </div>
+        </div>
     </div>   
 
     <h3>

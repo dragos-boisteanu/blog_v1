@@ -59,8 +59,8 @@
                 </div>
     
                 <div class="form__group form__group--space-between-h">
-                    <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" id="delete-btn" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                
             </form>

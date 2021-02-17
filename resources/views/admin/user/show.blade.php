@@ -48,6 +48,15 @@
                 {{ $user->created_at}}
             </div>
         </div>
+        @can('see-user')
+            <div class="detail">
+                <div class="detail__name">
+                </div>
+                <div class="details__value">
+                    <a href="{{ route('admin-users.edit', ['id'=>$user->id])}}">Edit</a>
+                </div>
+            </div>
+        @endcan
     </div>   
 
     <h3>
