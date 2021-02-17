@@ -98,7 +98,7 @@ class PostController extends Controller
 
         $categories = Category::all();
         $authors = User::where('role_id', '1')->orWhere('role_id', '2')->get();
-    
+        
         $request->flash();
 
         return view('admin.post.index', compact('posts', 'categories', 'authors', 'order_by'));

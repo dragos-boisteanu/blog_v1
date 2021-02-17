@@ -7,7 +7,7 @@
         User's details
     </h3>
     
-    <div class="dashboard-card" style="width: 40%">
+    <div class="dashboard-card details-container">
         <form method="POST" action="{{ route('admin-users.update', ['id'=>$user->id]) }}">
             @csrf
             @method('put')

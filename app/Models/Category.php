@@ -12,8 +12,15 @@ class Category extends Model
 
     public $timestamps = false;
 
+    protected $appends  = array('postsCount');
+
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getPostsCountAttribute()
+    {
+        return $this->posts()->count();
     }
 }

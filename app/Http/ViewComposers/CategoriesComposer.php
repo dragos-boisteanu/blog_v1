@@ -11,11 +11,7 @@ class CategoriesComposer
 
    public function compose(View $view)
    {
-       $excludedViews = ['admin.*', 'auth.*','user'];
-
-       if(!in_array($view->getName(), $excludedViews)) {
-           $this->categories = Category::all();
-           $view->with('categories', $this->categories);
-       }      
+      $this->categories = Category::all();
+      $view->with('categories', $this->categories);
    }
 }

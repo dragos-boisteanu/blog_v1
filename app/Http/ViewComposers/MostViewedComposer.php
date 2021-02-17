@@ -12,11 +12,7 @@ class MostViewedComposer
 
    public function compose(View $view)
    {
-       $excludedViews = ['admin.*', 'auth.*','user'];
-
-       if(!in_array($view->getName(), $excludedViews)) {
-           $this->posts = Post::orderByViews('desc', Period::pastDays(7))->limit(5)->get(); 
-           $view->with('mostViewedPosts', $this->posts);
-       }      
+      $this->posts = Post::orderByViews('desc', Period::pastDays(7))->limit(5)->get(); 
+      $view->with('mostViewedPosts', $this->posts); 
    }
 }

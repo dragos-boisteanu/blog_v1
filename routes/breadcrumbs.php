@@ -24,11 +24,15 @@ Breadcrumbs::for('post', function ($trail, $post) {
 });
 
 
+
+
+
 Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('dashboard.index'));
 });
 
 
+// POSTS
 Breadcrumbs::for('admin-posts', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Posts list', route('admin-post.index'));
@@ -46,6 +50,8 @@ Breadcrumbs::for('admin-posts.edit', function ($trail, $post) {
 });
 
 
+
+// USERS
 Breadcrumbs::for('admin-users', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Users list', route('admin-users.index'));
@@ -60,4 +66,22 @@ Breadcrumbs::for('admin-users.edit', function ($trail, $user) {
     $trail->parent('admin-users');
     $trail->push('User: ' . $user->name, route('admin-users.edit', ['id'=>$user->id]));
 });
+
+
+// CATEGORIES
+Breadcrumbs::for('admin-categories', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Categories list', route('admin-categories.index'));
+});
+
+Breadcrumbs::for('admin-categories.show', function ($trail, $category) {
+    $trail->parent('admin-categories');
+    $trail->push('Category: ' . $category->name, route('admin-categories.edit', ['id'=>$category->id]));
+});
+
+Breadcrumbs::for('admin-categories.edit', function ($trail, $category) {
+    $trail->parent('admin-categories');
+    $trail->push('Category: ' . $category->name, route('admin-categories.edit', ['id'=>$category->id]));
+});
+
 

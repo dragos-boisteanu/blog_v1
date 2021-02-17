@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Http\ViewComposers\CategoriesComposer;
+use App\Http\ViewComposers\MostViewedComposer;
 
 class ComposerProvider extends ServiceProvider
 {
@@ -23,14 +26,14 @@ class ComposerProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(
-            '*',
-            'App\Http\ViewComposers\CategoriesComposer'
+        View::composer(
+            ['includes.side-view', 'includes.footer'],
+            CategoriesComposer::class
         );
 
-        view()->composer(
-            '*',
-            'App\Http\ViewComposers\MostViewedComposer'
+        View::composer(
+            'includes.side-view',
+            MostViewedComposer::class
         );
     }
 }

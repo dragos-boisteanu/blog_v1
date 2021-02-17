@@ -61,7 +61,7 @@
                 </li>
             </ul>
         </li>
-        @can('show-users')
+        @can('see-users')
             <li class="nav__item">
                 <div class="item__header @if(Route::is('admin-users.*')) selected @endif">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
