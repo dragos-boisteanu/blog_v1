@@ -24,6 +24,12 @@ Breadcrumbs::for('post', function ($trail, $post) {
 });
 
 
+Breadcrumbs::for('account', function ($trail) {
+    $trail->parent('home');
+    $trail->push('My account', route('client-user.edit'));
+});
+
+
 
 
 

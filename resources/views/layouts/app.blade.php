@@ -26,7 +26,10 @@
                     @yield('content')
                 </div>
             </main>
-            @include('includes.side-view')
+            @if(!Route::is('client-user.*'))
+                @include('includes.side-view')
+            @endif
+          
         </div>
         @include('includes.footer')
         @stack('scripts')

@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail(Auth::id());
 
-        return view('user', compact('user'));
+        return view('account', compact('user'));
     }
 
     /**
@@ -48,10 +48,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::findOrFail(Auth::id())->delete();
-        Auth::logout();
+        if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2) {
+            $user =  User::findOrFail(Auth::id());
+            Auth::logout();
+            $user->delete();
+            session()->flash('info', 'Your account has been deleted');
+            return redirect()->route('home');
+        } 
 
-        session()->flash('info', 'Your account has been deleted');
-        return view('home');
+        abort(403);
+
     }
 }

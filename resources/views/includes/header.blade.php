@@ -53,40 +53,19 @@
    
 </header>
 
-<script>
-    // let displayDropdownContent = false;
 
-    // const headerDropdown = document.querySelector('.header__dropdown');
-    // const dropdownContent = document.querySelector('.dropdown__content');
+@push('scripts')
+    <script>
 
-    // headerDropdown.addEventListener('click', function() {
-    //     if(!displayDropdownContent) {
-    //         dropdownContent.style.display = "block"
-    //         displayDropdownContent = true;
-    //     }else {
-    //         dropdownContent.style.display = "none"
-    //         displayDropdownContent = false;
-    //     }
-    // });
+        const logout = document.getElementById('logout');
+        const logoutForm = document.getElementById('logout-form');
 
-    // window.onclick = function(event) {
-    //     if (event.target.id != 'header-dropdown' && !headerDropdown.contains(event.target)) {
-    //         if(displayDropdownContent) {
-    //             dropdownContent.style.display = "none";
-    //             displayDropdownContent = false;
-    //         }            
-    //     }
-    // }
-
-    const logout = document.getElementById('logout');
-    const logoutForm = document.getElementById('logout-form');
-
-    if(logout) {
-        logout.addEventListener('click', (e) => {
-            e.preventDefault();
-            logoutForm.submit();
-        })
-    }
-    
-
-</script>
+        if(logout) {
+            logout.addEventListener('click', (e) => {
+                e.preventDefault();
+                logoutForm.submit();
+            })
+        }
+        
+    </script>
+@endpush
