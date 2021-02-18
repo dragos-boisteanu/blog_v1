@@ -91,16 +91,16 @@
                 }
 
 
-                &:hover {
-                    cursor: pointer;
-                    background-color: $nav-bar-selected;
-                    color: $white;
-                    text-decoration: none;
+                // &:hover {
+                //     cursor: pointer;
+                //     background-color: $nav-bar-selected;
+                //     color: $white;
+                //     text-decoration: none;
 
-                    svg {
-                        fill: $white;
-                    }
-                }
+                //     svg {
+                //         fill: $white;
+                //     }
+                // }
             }
 
             &-submenu {

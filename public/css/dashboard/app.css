@@ -108,15 +108,6 @@ header .header__icon svg {
 .dashboard-side-nav .nav__list .nav__item .item__header * {
   color: inherit;
 }
-.dashboard-side-nav .nav__list .nav__item .item__header:hover {
-  cursor: pointer;
-  background-color: #00ABD7;
-  color: #ffff;
-  text-decoration: none;
-}
-.dashboard-side-nav .nav__list .nav__item .item__header:hover svg {
-  fill: #ffff;
-}
 .dashboard-side-nav .nav__list .nav__item-submenu {
   background: #3E445C;
   text-transform: capitalize;
