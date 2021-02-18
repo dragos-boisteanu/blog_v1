@@ -16,7 +16,7 @@
     </div>
     <ul class="nav__list">
         <li class="nav__item">
-            <a class="item__header @if(Route::is('dashboard.index')) selected @endif" href="{{route('dashboard.index')}}">
+            <a class="item__header hoverable @if(Route::is('dashboard.index')) selected @endif" href="{{route('dashboard.index')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>

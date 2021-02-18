@@ -144,6 +144,15 @@ header .header__icon svg {
 .dashboard-side-nav .nav__list .nav__item-submenu .submenu__item:hover svg {
   fill: #ffff;
 }
+.dashboard-side-nav .nav__list .hoverable:hover {
+  cursor: pointer;
+  background-color: #00ABD7;
+  color: #ffff;
+  text-decoration: none;
+}
+.dashboard-side-nav .nav__list .hoverable:hover svg {
+  fill: #ffff;
+}
 .dashboard-side-nav .nav__list .selected {
   background-color: #00ABD7;
   color: #ffff;

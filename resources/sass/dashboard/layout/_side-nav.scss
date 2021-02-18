@@ -89,18 +89,6 @@
                 & * {
                     color: inherit;
                 }
-
-
-                // &:hover {
-                //     cursor: pointer;
-                //     background-color: $nav-bar-selected;
-                //     color: $white;
-                //     text-decoration: none;
-
-                //     svg {
-                //         fill: $white;
-                //     }
-                // }
             }
 
             &-submenu {
@@ -150,6 +138,19 @@
                 }
 
             }
+        }
+
+        .hoverable {
+             &:hover {
+                    cursor: pointer;
+                    background-color: $nav-bar-selected;
+                    color: $white;
+                    text-decoration: none;
+
+                    svg {
+                        fill: $white;
+                    }
+                }
         }
 
         .selected {
