@@ -10,6 +10,7 @@ header {
   padding: 0 5px;
 }
 header .header__icon {
+  position: relative;
   padding: 7px 14px;
   border-left: 1px solid #c2c5cd;
 }
@@ -264,6 +265,22 @@ table .status--inactive {
 .pagination li {
   padding: 2px 4px;
   margin: 0 5px;
+}
+
+.dashboard-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 52px;
+  z-index: 2;
+  background: #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  width: 55px;
+  font-size: 0.7rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+.dashboard-dropdown li {
+  margin: 10px 0;
 }
 
 .dashboard-details {

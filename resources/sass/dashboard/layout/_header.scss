@@ -12,6 +12,9 @@ header {
     padding: 0 5px;
 
     .header__icon {
+
+        position: relative;
+        
         padding: 7px 14px;
         border-left: 1px solid lighten($nav-bar-text, 15);
         &:hover {
