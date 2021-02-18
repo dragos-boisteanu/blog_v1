@@ -858,7 +858,7 @@ select[name=q] {
 }
 .post___header .category-name,
 .post___header .views-counter {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.7rem;
   color: #fff;
   padding: 5px;

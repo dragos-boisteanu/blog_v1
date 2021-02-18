@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('breadcrumps')
+@section('breadcrumbs')
     {{ Breadcrumbs::render('post', $post) }}
 @endsection
 
