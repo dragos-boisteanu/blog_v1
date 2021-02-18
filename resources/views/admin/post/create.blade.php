@@ -1,8 +1,11 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-post.create')}}
-    </x-slot>
+@extends('layouts.dashboard')
 
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-post.create')}}
+@endsection
+
+@section('content')
     <h1>
         Create new post
     </h1>
@@ -69,28 +72,29 @@
 
     </div>
     
+@endsection
 
-</x-dashboard-layout>
+@push('scripts')
 
+    <script>
+        const imageLinkInput = document.getElementById('image-link');
+        const postImage = document.getElementById('post-image');
+        const imageContainer = document.querySelector('.image-container');
 
-
-<script>
-    const imageLinkInput = document.getElementById('image-link');
-    const postImage = document.getElementById('post-image');
-    const imageContainer = document.querySelector('.image-container');
-
-    const showImageFromLink = () => {
-        postImage.src = imageLinkInput.value;
-        if(imageContainer.style.display === 'none') {
-            imageContainer.style.display = '';
-        }else {
-            imageContainer.style.display = 'none';
+        const showImageFromLink = () => {
+            postImage.src = imageLinkInput.value;
+            if(imageContainer.style.display === 'none') {
+                imageContainer.style.display = '';
+            }else {
+                imageContainer.style.display = 'none';
+            }
         }
-    }
 
-    if(imageLinkInput.value.length > 0) {
-        showImageFromLink();
-    }
-    imageLinkInput.addEventListener("input", showImageFromLink);
-    CKEDITOR.replace( 'content' );
-</script>
+        if(imageLinkInput.value.length > 0) {
+            showImageFromLink();
+        }
+        imageLinkInput.addEventListener("input", showImageFromLink);
+        CKEDITOR.replace( 'content' );
+    </script>
+
+@endpush

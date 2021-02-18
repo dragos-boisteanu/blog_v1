@@ -1,8 +1,11 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-categories.create') }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-categories.create') }}
+@endsection
+
+@section('content')
     <div class="dashboard-card details-container">
         <form method="POST" class="form" action="{{ route('admin-categories.store')}}">
             @csrf
@@ -20,4 +23,5 @@
             </div>
         </form>
     </div>   
-</x-dashboard-layout>
+@endsection
+

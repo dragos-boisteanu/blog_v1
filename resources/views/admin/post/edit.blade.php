@@ -1,8 +1,10 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-posts.edit', $post) }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-posts.edit', $post) }}
+@endsection
+
+@section('content')
     <h1>
         Edit post
     </h1>
@@ -73,38 +75,39 @@
             <img id="post-image" src=""/>
         </div>
     </div>
-    
-</x-dashboard-layout>
+@endsection
 
-<script>
-    CKEDITOR.replace( 'content' );
+@push('scripts')
+    <script>
+        CKEDITOR.replace( 'content' );
 
-    const imageLinkInput = document.getElementById('image-link');
-    const postImage = document.getElementById('post-image');
-    const imageContainer = document.querySelector('.image-container');
+        const imageLinkInput = document.getElementById('image-link');
+        const postImage = document.getElementById('post-image');
+        const imageContainer = document.querySelector('.image-container');
 
-    const showImageFromLink = () => {
-        postImage.src = imageLinkInput.value;
-        if(imageContainer.style.display === 'none') {
-            imageContainer.style.display = 'block';
-        }else {
-            imageContainer.style.display = 'none';
+        const showImageFromLink = () => {
+            postImage.src = imageLinkInput.value;
+            if(imageContainer.style.display === 'none') {
+                imageContainer.style.display = 'block';
+            }else {
+                imageContainer.style.display = 'none';
+            }
         }
-    }
 
-    if(imageLinkInput.value.length > 0) {
-        showImageFromLink();
-    }
+        if(imageLinkInput.value.length > 0) {
+            showImageFromLink();
+        }
 
-    imageLinkInput.addEventListener("input", showImageFromLink);
+        imageLinkInput.addEventListener("input", showImageFromLink);
 
 
-    const deleteBtn = document.getElementById('delete-btn');
-    const deleteForm = document.getElementById('delete-form');
+        const deleteBtn = document.getElementById('delete-btn');
+        const deleteForm = document.getElementById('delete-form');
 
-    deleteBtn.addEventListener('click', function(e) {
-        e.preventDefault;
-        deleteForm.submit();
-    })
+        deleteBtn.addEventListener('click', function(e) {
+            e.preventDefault;
+            deleteForm.submit();
+        })
 
-</script>
+    </script>
+@endpush

@@ -25,12 +25,11 @@
             @include('includes.dashboard.side-nav')
             <div class="darshboard__content">
                 @include('includes.dashboard.header')
-                <main class="view__body">
-                    <div>
-                        {{ $breadcrumb }}
-                    </div>    
+                <main class="view__body">                   
+                    @yield('breadcrumbs')
+                       
                     <div class="content">
-                        {{ $slot }}
+                        @yield('content')
                     </div>
                 </main>
             </div>

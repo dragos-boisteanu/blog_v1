@@ -1,8 +1,10 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-posts') }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-posts') }}
+@endsection
+
+@section('content')
     <h1>
         Posts list
     </h1>
@@ -43,7 +45,7 @@
                 <input type="date" name="to_date" value="{{ old('to_date') }}"/>
             </div>
             
-           
+        
             <div class="form__group form__group--center form__group--38-heigt">
                 <button type="submit" class="btn btn-primary">Filter</button>
             </div>
@@ -53,7 +55,7 @@
             </div>
 
             <input id="orderBy-filter" name="order_by" type="hidden"/>
-           
+        
         </form>
         <form id="reset-form" method="GET" method="GET" action="{{ route('admin-post.index')}} ">
             <input id="orderBy-reset" name="order_by" type="hidden"/>
@@ -137,7 +139,7 @@
                                     inactive
                                 </div>
                             @endif
-                           
+                        
                         </td>
                         <td class="center">
                             {{ $post->viewsCount() }}
@@ -146,36 +148,36 @@
                             <a href="{{ route('admin-post.edit', ['id'=>$post->id]) }}">Edit</a>  
                         </td>
                     </tr>
-    
+
                 @endforeach
             </tbody>
         </table>
         {{ $posts->appends(request()->all())->links() }}
     </div>
-    
-   
-</x-dashboard-layout>
+@endsection
 
-<script>
-    const filterForm = document.getElementById('filter-form');
+@push('scripts')
+    <script>
+        const filterForm = document.getElementById('filter-form');
 
-    const resetBtn = document.getElementById('reset-btn');
-    const resetForm = document.getElementById('reset-form');
+        const resetBtn = document.getElementById('reset-btn');
+        const resetForm = document.getElementById('reset-form');
 
-    const orderBy = document.getElementById('orderBy');
-    const orderByFilter  = document.getElementById('orderBy-filter');
-    const orderByReset = document.getElementById('orderBy-reset');
-    
-    resetBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        resetForm.submit();
-    })
+        const orderBy = document.getElementById('orderBy');
+        const orderByFilter  = document.getElementById('orderBy-filter');
+        const orderByReset = document.getElementById('orderBy-reset');
+        
+        resetBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetForm.submit();
+        })
 
-    orderByFilter.value = orderBy.value;
-    orderByReset.value = orderBy.value;
-
-    orderBy.addEventListener('change', function() {
         orderByFilter.value = orderBy.value;
-        filterForm.submit();
-    })
-</script>
+        orderByReset.value = orderBy.value;
+
+        orderBy.addEventListener('change', function() {
+            orderByFilter.value = orderBy.value;
+            filterForm.submit();
+        })
+    </script>
+@endpush

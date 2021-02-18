@@ -1,8 +1,10 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-categories.edit', $category) }}
-    </x-slot>
-    
+@extends('layouts.dashboard')
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-categories.edit', $category) }}
+@endsection
+
+@section('content')
     <div class="dashboard-card details-container">
         <form method="POST" class="form" action="{{ route('admin-categories.update', ['id'=>$category->id]) }}">
             @csrf
@@ -24,15 +26,17 @@
             @method('delete')
         </form>
     </div>   
-</x-dashboard-layout>
+@endsection
 
-<script>
-    const deleteBtn = document.querySelector('#delete-btn');
-    const deleteForm = document.querySelector('#delete-form');
+@push('scrips')
+    <script>
+        const deleteBtn = document.querySelector('#delete-btn');
+        const deleteForm = document.querySelector('#delete-form');
 
-    deleteBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+        deleteBtn.addEventListener('click', function(e) {
+            e.preventDefault();
 
-        deleteForm.submit();
-    })
-</script>
+            deleteForm.submit();
+        })
+    </script>
+@endpush

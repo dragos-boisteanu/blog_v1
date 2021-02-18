@@ -1,0 +1,15 @@
+.post-create {
+    display: flex;
+    align-items: flex-start;
+
+    .image-container {
+        margin-left: 50px;
+        height: 380px;
+        width: 600px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

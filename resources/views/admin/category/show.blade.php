@@ -1,8 +1,10 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-categories.edit', $category) }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+@section('dashboard')
+    {{ Breadcrumbs::render('admin-categories.edit', $category) }}
+@endsection
+
+@section('content')
     <h3>
         Category's details
     </h3>
@@ -175,29 +177,33 @@
         </table>
         {{ $posts->appends(request()->all())->links() }}
     </div>
-</x-dashboard-layout>
+@endsection
 
-<script>
 
-    const filterForm = document.getElementById('filter-form');
+@push('scripts')
+    <script>
 
-    const resetBtn = document.getElementById('reset-btn');
-    const resetForm = document.getElementById('reset-form');
+        const filterForm = document.getElementById('filter-form');
 
-    const orderBy = document.getElementById('orderBy');
-    const orderByFilter  = document.getElementById('orderBy-filter');
-    const orderByReset = document.getElementById('orderBy-reset');
+        const resetBtn = document.getElementById('reset-btn');
+        const resetForm = document.getElementById('reset-form');
 
-    resetBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        resetForm.submit();
-    })
+        const orderBy = document.getElementById('orderBy');
+        const orderByFilter  = document.getElementById('orderBy-filter');
+        const orderByReset = document.getElementById('orderBy-reset');
 
-    orderByFilter.value = orderBy.value;
-    orderByReset.value = orderBy.value;
+        resetBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetForm.submit();
+        })
 
-    orderBy.addEventListener('change', function() {
         orderByFilter.value = orderBy.value;
-        filterForm.submit();
-    })
-</script>
+        orderByReset.value = orderBy.value;
+
+        orderBy.addEventListener('change', function() {
+            orderByFilter.value = orderBy.value;
+            filterForm.submit();
+        })
+    </script>
+@endpush
+

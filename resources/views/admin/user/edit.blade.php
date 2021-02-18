@@ -1,7 +1,12 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-users.edit', $user) }}
-    </x-slot>
+@extends('layouts.dashboard')
+
+
+@section('breadcrumb')
+    {{ Breadcrumbs::render('admin-users.edit', $user) }}
+@endsection
+
+
+@section('content')
 
     <h3>
         User's details
@@ -46,15 +51,19 @@
             @method('delete')
         </form>
     </div>   
-</x-dashboard-layout>
 
-<script>
-    const deleteBtn = document.querySelector('#delete-btn');
-    const deleteForm = document.querySelector('#delete-form');
+@endsection
 
-    deleteBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+@push('scrips')
+    <script>
+        const deleteBtn = document.querySelector('#delete-btn');
+        const deleteForm = document.querySelector('#delete-form');
 
-        deleteForm.submit();
-    })
-</script>
+        deleteBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            deleteForm.submit();
+        })
+    </script>
+@endpush
+

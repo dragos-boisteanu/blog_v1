@@ -1,8 +1,10 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('dashboard') }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('dashboard') }}
+@endsection
+
+@section('content')
     <div class="dashboard-details">
         <a href="{{ route('admin-post.index') }}" class="detail-card posts-card">
             <span class="value">23</span> 
@@ -36,4 +38,4 @@
             </div>
         @endcan
     </div>
-</x-dashboard-layout>
+@endsection

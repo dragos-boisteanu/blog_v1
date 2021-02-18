@@ -328,3 +328,17 @@ table .status--inactive {
 .dashboard-details .detail-card .name {
   font-size: 1.5rem;
 }
+
+.post-create {
+  display: flex;
+  align-items: flex-start;
+}
+.post-create .image-container {
+  margin-left: 50px;
+  height: 380px;
+  width: 600px;
+}
+.post-create .image-container img {
+  height: 100%;
+  width: 100%;
+}

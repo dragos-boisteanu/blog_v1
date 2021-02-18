@@ -1,8 +1,11 @@
-<x-dashboard-layout>
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('admin-categories') }}
-    </x-slot>
+@extends('layouts.dashboard')
 
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin-categories') }}
+@endsection
+ 
+@section('content')
     <h1>
         Categories list
     </h1>
@@ -94,29 +97,31 @@
         {{ $categories->appends(request()->all())->links() }}
     </div>
     
-   
-</x-dashboard-layout>
+@endsection
 
-<script>
-    const filterForm = document.getElementById('filter-form');
+@push('scripts')
+    <script>
+        const filterForm = document.getElementById('filter-form');
 
-    const resetBtn = document.getElementById('reset-btn');
-    const resetForm = document.getElementById('reset-form');
+        const resetBtn = document.getElementById('reset-btn');
+        const resetForm = document.getElementById('reset-form');
 
-    const orderBy = document.getElementById('orderBy');
-    const orderByFilter  = document.getElementById('orderBy-filter');
-    const orderByReset = document.getElementById('orderBy-reset');
-    
-    resetBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        resetForm.submit();
-    })
+        const orderBy = document.getElementById('orderBy');
+        const orderByFilter  = document.getElementById('orderBy-filter');
+        const orderByReset = document.getElementById('orderBy-reset');
+        
+        resetBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetForm.submit();
+        })
 
-    orderByFilter.value = orderBy.value;
-    orderByReset.value = orderBy.value;
-
-    orderBy.addEventListener('change', function() {
         orderByFilter.value = orderBy.value;
-        filterForm.submit();
-    })
-</script>
+        orderByReset.value = orderBy.value;
+
+        orderBy.addEventListener('change', function() {
+            orderByFilter.value = orderBy.value;
+            filterForm.submit();
+        })
+    </script>
+@endpush
+
