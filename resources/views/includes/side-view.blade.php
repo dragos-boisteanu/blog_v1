@@ -1,7 +1,7 @@
 <div class="view__side">
     <div class="search-container">
         <form class="search-form" method="GET" action="{{ route('search') }}">
-            <input name="q" type="text" placeholder="Search..."/>
+            <input name="q" type="text" class="input-search" placeholder="Search..."/>
             <button type="submit" class="btn btn-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px">
                     <path d="M0 0h24v24H0z" fill="none"/>

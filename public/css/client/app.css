@@ -771,6 +771,10 @@ select[name=q] {
   border: none;
 }
 
+.input-search {
+  box-shadow: none;
+}
+
 .pagination {
   display: flex;
   justify-content: space-between;
