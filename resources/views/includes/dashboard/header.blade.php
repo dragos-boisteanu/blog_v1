@@ -20,36 +20,37 @@
     </div>
 </header>
 
+@push('scripts')
+    <script>
+        const headerIcon = document.querySelector('.header__icon');
+        
+        const dashboardDropdown = document.querySelector('.dashboard-dropdown');
+        const logoutButton = document.querySelector('#logout-button');
+        const logoutForm = document.querySelector('#logout-form');
 
-<script>
-    const headerIcon = document.querySelector('.header__icon');
-    
-    const dashboardDropdown = document.querySelector('.dashboard-dropdown');
-    const logoutButton = document.querySelector('#logout-button');
-    const logoutForm = document.querySelector('#logout-form');
-
-    dashboardDropdown.style.display = 'none';
-    const toggleDropdown = function() {
-        if (dashboardDropdown.style.display === 'none'){
-            dashboardDropdown.style.display = 'block';
-        } else{
-            dashboardDropdown.style.display = 'none';
-        }   
-    }
-
-    logoutButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        logoutForm.submit();
-    });
-
-    headerIcon.addEventListener('click', function() {
-        toggleDropdown();
-    })
-
-    window.addEventListener('click', function(e){   
-        if (!headerIcon.contains(e.target)){
-            toggleDropdown();
+        dashboardDropdown.style.display = 'none';
+        const toggleDropdown = function() {
+            if (dashboardDropdown.style.display === 'none'){
+                dashboardDropdown.style.display = 'block';
+            } else{
+                dashboardDropdown.style.display = 'none';
+            }   
         }
-    }); 
 
-</script>
+        logoutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            logoutForm.submit();
+        });
+
+        headerIcon.addEventListener('click', function() {
+            toggleDropdown();
+        })
+
+        window.addEventListener('click', function(e){   
+            if (!headerIcon.contains(e.target)){
+                toggleDropdown();
+            }
+        }); 
+
+    </script>
+@endpush

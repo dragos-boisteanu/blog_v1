@@ -20,15 +20,15 @@
         @include('includes.header')
         <div class="view">
             <main class="view__body">
-                <div>
-                    {{ $breadcrumb }}
-                </div>    
+                @yield('breadcrumbs')
+
                 <div class="content">
-                    {{ $slot }}
+                    @yield('content')
                 </div>
             </main>
             @include('includes.side-view')
         </div>
         @include('includes.footer')
+        @stack('scripts')
     </body>
 </html>

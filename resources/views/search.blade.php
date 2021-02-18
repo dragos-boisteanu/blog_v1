@@ -1,9 +1,12 @@
-<x-app-layout>
-    
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('search') }}
-    </x-slot>
-    
+@extends('layouts.app')
+
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('search') }}
+@endsection
+
+
+@section('content')
     @if(isset($searchData) && !empty($searchData)) 
         <h2>
             Search results: {{ $searchData }}
@@ -22,4 +25,4 @@
         </div>
     @endif
 
-</x-app-layout>
+@endsection

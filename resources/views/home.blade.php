@@ -1,11 +1,12 @@
-<x-app-layout>
-    
-    <x-slot name="breadcrumb">
-        {{ Breadcrumbs::render('home') }}
-    </x-slot>
+@extends('layouts.app')
 
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('home') }}
+@endsection
+
+@section('content')
     <div class="posts">
         <x-post-list :posts="$posts"></x-post-list>
     </div>
-
-</x-app-layout>
+@endsection
