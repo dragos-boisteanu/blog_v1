@@ -26,9 +26,21 @@
     
     const dashboardDropdown = document.querySelector('.dashboard-dropdown');
     const logoutButton = document.querySelector('#logout-button');
-    const logoutForm = document.querySelector('#logout-forum');
+    const logoutForm = document.querySelector('#logout-form');
 
     dashboardDropdown.style.display = 'none';
+    const toggleDropdown = function() {
+        if (dashboardDropdown.style.display === 'none'){
+            dashboardDropdown.style.display = 'block';
+        } else{
+            dashboardDropdown.style.display = 'none';
+        }   
+    }
+
+    logoutButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        logoutForm.submit();
+    });
 
     headerIcon.addEventListener('click', function() {
         toggleDropdown();
@@ -39,13 +51,5 @@
             toggleDropdown();
         }
     }); 
-
-    const toggleDropdown = function() {
-        if (dashboardDropdown.style.display === 'none'){
-            dashboardDropdown.style.display = 'block';
-        } else{
-            dashboardDropdown.style.display = 'none';
-        }   
-    }
 
 </script>
