@@ -25,9 +25,11 @@
                         <li>
                             <a href="{{ route('client-user.edit')}}">Account</a>
                         </li>
-                        <li>
-                            <a href="{{ route('dashboard.index')}}">Dashboard</a>
-                        </li>
+                        @if(Auth::user()->role_id != 3)
+                            <li>
+                                <a href="{{ route('dashboard.index')}}">Dashboard</a>
+                            </li>
+                        @endif
                         <li>
                             <a href="/read-later">Read later</a>
                         </li>

@@ -18,6 +18,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function() {
     Route::namespace('Web\Client')->group(function () {
+        // Route::get('/read-later', '')->name('client-read-later');
         Route::prefix('account')->group(function () { 
             Route::get('/', 'UserController@edit')->name('client-user.edit');
             Route::put('/', 'UserController@update')->name('client-user.update');
