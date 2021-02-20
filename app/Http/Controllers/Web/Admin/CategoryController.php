@@ -102,39 +102,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        $query = Post::where( function($query) use ($request, $category) {
-
-            $query->where('category_id', $category->id);
-
-            if($post_id = $request->post_id) {
-                $query->where('id', $post_id);
-            }
-
-            if($title = $request->title) {
-                $query->where('title', 'like', '%'.$title.'%');
-            }
-
-            if($authorId = $request->author_id) {
-                $query->where('user_id', $authorId);
-            }
-
-            if($status = $request->status) {
-                if($status == 1) {
-                    $query->whereNull('deleted_at');
-                } else {
-                    $query->whereNotNull('deleted_at');
-                }
-            }
-
-            if($fromDate = $request->from_date) {
-                $query->whereDate('created_at', '>=', $fromDate);
-            } else if($toDate = $request->to_date) {
-                $query->whereDate('created_at', '<=', $toDate);
-            } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
-                $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
-            }
-           
-        });
+        $query = Post::filter($request);
 
         if(!isset($request->order_by)) {
             $order_by = 6;

@@ -61,7 +61,12 @@
                 </div>
     
                 <div class="form__group form__group--space-between-h">
-                    <button type="button" id="delete-btn" class="btn btn-danger">Delete</button>
+                    @if($post->isSoftDeleted)
+                        <button type="button" id="restore-btn" class="btn btn-primary">Restore</button>
+                    @else 
+                        <button type="button" id="delete-btn" class="btn btn-danger">Delete</button>
+                    @endif
+                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                
@@ -69,6 +74,9 @@
             <form id="delete-form" method="POST" action="{{ route('admin-post.delete', ['id'=>$post->id])}}" style="display: none">
                 @csrf
                 @method('DELETE')
+            </form>
+            <form id="restore-form" method="POST" action="{{ route('admin-post.restore', ['id'=>$post->id])}}" style="display: none">
+                @csrf
             </form>
         </div>
         <div class="dashboard-card image-container" style="display: none">
@@ -81,9 +89,10 @@
     <script>
         CKEDITOR.replace( 'content' );
 
-        const imageLinkInput = document.getElementById('image-link');
-        const postImage = document.getElementById('post-image');
+        const imageLinkInput = document.querySelector('#image-link');
+        const postImage = document.querySelector('#post-image');
         const imageContainer = document.querySelector('.image-container');
+
 
         const showImageFromLink = () => {
             postImage.src = imageLinkInput.value;
@@ -100,14 +109,39 @@
 
         imageLinkInput.addEventListener("input", showImageFromLink);
 
-
-        const deleteBtn = document.getElementById('delete-btn');
-        const deleteForm = document.getElementById('delete-form');
-
-        deleteBtn.addEventListener('click', function(e) {
-            e.preventDefault;
-            deleteForm.submit();
-        })
-
     </script>
 @endpush
+
+
+@if($post->isSoftDeleted)
+
+    @push('scripts')
+        <script>
+            const restoreBtn = document.querySelector('#restore-btn');
+            const restoreForm = document.querySelector('#restore-form');
+
+            restoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                restoreForm.submit();
+            })
+        </script>
+    @endpush
+
+@else 
+
+    @push('scripts')
+        <script>
+            
+            const deleteBtn = document.querySelector('#delete-btn');
+            const deleteForm = document.querySelector('#delete-form');
+
+            
+            deleteBtn.addEventListener('click', function(e) {
+                e.preventDefault;
+                deleteForm.submit();
+            })
+        </script>   
+    @endpush
+
+
+@endif 

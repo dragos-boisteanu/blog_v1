@@ -20,8 +20,6 @@ class UserController extends Controller
     public function index(Request $request)
     {
 
-       
-
         if ($request->route()->getName() == 'admin-users.authors') {
             $roleId = 2;
         } else {
@@ -92,10 +90,10 @@ class UserController extends Controller
                 $order = 'asc';
                 $query->orderBy($orderBy, $order);
                 break;
-            case 4: 
+            case 5: 
               
                 break;
-            case 4: 
+            case 6: 
              
                 break;
             case 7:
@@ -106,11 +104,8 @@ class UserController extends Controller
             case 8:
                 $orderBy = 'created_at';
                 $order = 'desc';
-                break;
-            default: 
-                $orderBy = 'created_at';
-                $order = 'desc';
                 $query->orderBy($orderBy, $order);
+                break;
         }
 
 
@@ -134,39 +129,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $query = Post::where( function($query) use ($request, $user) {
-
-            $query->where('user_id', $user->id);
-
-            if($post_id = $request->post_id) {
-                $query->where('id', $post_id);
-            }
-
-            if($title = $request->title) {
-                $query->where('title', 'like', '%'.$title.'%');
-            }
-
-            if($categoryId = $request->category_id) {
-                $query->where('category_id', $categoryId);
-            }
-
-            if($status = $request->status) {
-                if($status == 1) {
-                    $query->whereNull('deleted_at');
-                } else {
-                    $query->whereNotNull('deleted_at');
-                }
-            }
-
-            if($fromDate = $request->from_date) {
-                $query->whereDate('created_at', '>=', $fromDate);
-            } else if($toDate = $request->to_date) {
-                $query->whereDate('created_at', '<=', $toDate);
-            } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
-                $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
-            }
-           
-        });
+        $query = Post::filter($request);
 
         if(!isset($request->order_by)) {
             $order_by = 6;

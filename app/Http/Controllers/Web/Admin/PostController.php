@@ -20,41 +20,8 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-
-        $query = Post::where( function($query) use ($request) {
-            if($id = $request->id) {
-                $query->where('id', $id);
-            }
-
-            if($title = $request->title) {
-                $query->where('title', 'like', '%'.$title.'%');
-            }
-
-            if($categoryId = $request->category_id) {
-                $query->where('category_id', $categoryId);
-            }
-
-            if($authorId = $request->author_id) {
-                $query->where('user_id', $authorId);
-            }
-
-            if($status = $request->status) {
-                if($status == 1) {
-                    $query->whereNull('deleted_at');
-                } else {
-                    $query->whereNotNull('deleted_at');
-                }
-            }
-
-            if($fromDate = $request->from_date) {
-                $query->whereDate('created_at', '>=', $fromDate);
-            } else if($toDate = $request->to_date) {
-                $query->whereDate('created_at', '<=', $toDate);
-            } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
-                $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
-            }
            
-        });
+        $query = Post::filter($request);
 
         if(!isset($request->order_by)) {
             $order_by = 6;
@@ -62,38 +29,38 @@ class PostController extends Controller
             $order_by = $request->order_by;
         }
 
-        switch($order_by) {
-            case 1: 
-                $orderBy = 'title';
-                $order = 'asc';
-                $query->orderBy($orderBy, $order);
-                break;
-            case 2: 
-                $orderBy = 'title';
-                $order = 'desc';
-                $query->orderBy($orderBy, $order);
-                break;
-            case 3:
-                $query->orderByUniqueViews();
-                break;
-            case 4: 
-                $query->orderByUniqueViews('asc');
-                break;
-            case 5:
-                $orderBy = 'created_at';
-                $order = 'asc';
-                $query->orderBy($orderBy, $order);
-                break;
-            case 6:
-                $orderBy = 'created_at';
-                $order = 'desc';
-                break;
-            default: 
-                $orderBy = 'created_at';
-                $order = 'desc';
-                $query->orderBy($orderBy, $order);
-        }
-
+        // switch($order_by) {
+        //     case 1: 
+        //         $orderBy = 'title';
+        //         $order = 'asc';
+        //         $query->orderBy($orderBy, $order);
+        //         break;
+        //     case 2: 
+        //         $orderBy = 'title';
+        //         $order = 'desc';
+        //         $query->orderBy($orderBy, $order);
+        //         break;
+        //     case 3:
+        //         $query->orderByUniqueViews();
+        //         break;
+        //     case 4: 
+        //         $query->orderByUniqueViews('asc');
+        //         break;
+        //     case 5:
+        //         $orderBy = 'created_at';
+        //         $order = 'asc';
+        //         $query->orderBy($orderBy, $order);
+        //         break;
+        //     case 6:
+        //         $orderBy = 'created_at';
+        //         $order = 'desc';
+        //         break;
+        //     default: 
+        //         $orderBy = 'created_at';
+        //         $order = 'desc';
+        //         $query->orderBy($orderBy, $order);
+        // }
+        
         $posts = $query->withTrashed()->paginate(15);
 
         $categories = Category::all();
@@ -135,19 +102,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $post = Post::findOrFail($id);
-
-        return view('admin.post.show', compact('posts'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -155,7 +109,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::withTrashed()->findOrFail($id);
         $categories = Category::all();
         
         return view('admin.post.edit', compact('post', 'categories'));
@@ -180,7 +134,7 @@ class PostController extends Controller
         
         session()->flash('info', 'The post was updated');
 
-        return redirect()->route('admin-posts.edit', $post->id);       
+        return redirect()->route('admin-post.edit', $post->id);       
     }
 
     /**
@@ -195,6 +149,18 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return redirect()->route('admin-posts.index');
+        return redirect()->route('admin-post.index');
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->findOrFail($id);
+
+        $post->restore();
+
+        session()->flash('info', 'The post was restored');
+
+        return redirect()->route('admin-post.index');
+
     }
 }
