@@ -91,10 +91,14 @@ class UserController extends Controller
                 $query->orderBy($orderBy, $order);
                 break;
             case 5: 
-              
+                $orderBy = 'posts_count';
+                $order = 'asc';
+                $query->withCount('posts')->orderBy($orderBy, $order);
                 break;
             case 6: 
-             
+                $orderBy = 'posts_count';
+                $order = 'desc';
+                $query->withCount('posts')->orderBy($orderBy, $order);
                 break;
             case 7:
                 $orderBy = 'created_at';

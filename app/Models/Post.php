@@ -24,7 +24,8 @@ class Post extends Model implements Viewable
         'image_url',
         'preview',
         'content',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
     protected $with = ['category', 'user'];

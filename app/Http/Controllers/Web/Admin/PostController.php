@@ -29,37 +29,34 @@ class PostController extends Controller
             $order_by = $request->order_by;
         }
 
-        // switch($order_by) {
-        //     case 1: 
-        //         $orderBy = 'title';
-        //         $order = 'asc';
-        //         $query->orderBy($orderBy, $order);
-        //         break;
-        //     case 2: 
-        //         $orderBy = 'title';
-        //         $order = 'desc';
-        //         $query->orderBy($orderBy, $order);
-        //         break;
-        //     case 3:
-        //         $query->orderByUniqueViews();
-        //         break;
-        //     case 4: 
-        //         $query->orderByUniqueViews('asc');
-        //         break;
-        //     case 5:
-        //         $orderBy = 'created_at';
-        //         $order = 'asc';
-        //         $query->orderBy($orderBy, $order);
-        //         break;
-        //     case 6:
-        //         $orderBy = 'created_at';
-        //         $order = 'desc';
-        //         break;
-        //     default: 
-        //         $orderBy = 'created_at';
-        //         $order = 'desc';
-        //         $query->orderBy($orderBy, $order);
-        // }
+        switch($order_by) {
+            case 1: 
+                $orderBy = 'title';
+                $order = 'asc';
+                $query->orderBy($orderBy, $order);
+                break;
+            case 2: 
+                $orderBy = 'title';
+                $order = 'desc';
+                $query->orderBy($orderBy, $order);
+                break;
+            case 3:
+                $query->orderByUniqueViews();
+                break;
+            case 4: 
+                $query->orderByUniqueViews('asc');
+                break;
+            case 5:
+                $orderBy = 'created_at';
+                $order = 'asc';
+                $query->orderBy($orderBy, $order);
+                break;
+            case 6:
+                $orderBy = 'created_at';
+                $order = 'desc';
+                $query->orderBy($orderBy, $order);
+                break;
+        }
         
         $posts = $query->withTrashed()->paginate(15);
 
@@ -98,7 +95,7 @@ class PostController extends Controller
 
         session()->flash('info', 'The post was deleted');
 
-        return redirect()->route('admin-posts.index');
+        return redirect()->route('admin-post.index');
     }
 
     /**

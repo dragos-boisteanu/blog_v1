@@ -9,6 +9,6 @@ use App\Filters\General\OrderByFilter;
 class UserFilter extends AbstractFilter
 {
    protected $filters = [
-        'order_by' => OrderByFilter::class
+      
    ];
 }

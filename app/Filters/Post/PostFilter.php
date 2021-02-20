@@ -19,7 +19,6 @@ class PostFilter extends AbstractFilter
         'category_id' => CategoryFilter::class,
         'status' => StatusFilter::class,
         'from_date' => FromDateFilter::class,
-        'to_date' => ToDateFilter::class,
-        'order_by' => OrderByFilter::class
+        'to_date' => ToDateFilter::class
     ];
 }
