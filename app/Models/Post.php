@@ -69,7 +69,7 @@ class Post extends Model implements Viewable
 
     public function viewsCount()
     {
-        return views($this)->count();
+        return views($this)->unique()->count();
     }
 
     public function getStatus() {

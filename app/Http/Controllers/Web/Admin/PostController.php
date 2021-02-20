@@ -121,7 +121,7 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::withTrashed()->findOrFail($id);
         
         if (!Gate::allows('update-post', $post)) {
             abort(403);
