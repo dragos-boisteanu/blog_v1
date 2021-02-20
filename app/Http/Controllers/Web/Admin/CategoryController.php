@@ -19,16 +19,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Category::where( function($query) use ($request) {
-            if($id = $request->id) {
-                $query->where('id', $id);
-            }
-
-            if($name = $request->name) {
-                $query->where('name', 'like', '%'.$name.'%');
-            }
-           
-        });
+        $query = Category::filter($request);
 
         if(!isset($request->order_by)) {
             $order_by = 1;
@@ -59,7 +50,7 @@ class CategoryController extends Controller
                 break;
         }
 
-        $categories =  $query->paginate(15);
+        $categories = $query->paginate(15);
 
         $request->flash();
 
