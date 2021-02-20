@@ -40,42 +40,44 @@ class UserController extends Controller
             }
         }
 
-        $query = User::where( function($query) use ($request) {
-            if($id = $request->id) {
-                $query->where('id', $id);
-            }
+        $query = User::filter($request);
 
-            if($name = $request->name) {
-                $query->where('name', 'like', '%'.$name.'%');
-            }
+        // $query = User::where( function($query) use ($request) {
+        //     if($id = $request->id) {
+        //         $query->where('id', $id);
+        //     }
 
-            if($email = $request->email) {
-                $query->where('email', 'like', '%'.$email.'%');
-            }
+        //     if($name = $request->name) {
+        //         $query->where('name', 'like', '%'.$name.'%');
+        //     }
 
-            if($roleId = $request->role_id) {
-                $query->where('role_id', $roleId);
-            }else if ($request->route()->getName() == 'admin-users.authors') {
-                $query->where('role_id', 2);
-            }
+        //     if($email = $request->email) {
+        //         $query->where('email', 'like', '%'.$email.'%');
+        //     }
+
+        //     if($roleId = $request->role_id) {
+        //         $query->where('role_id', $roleId);
+        //     }else if ($request->route()->getName() == 'admin-users.authors') {
+        //         $query->where('role_id', 2);
+        //     }
     
-            if($status = $request->status) {
-                if($status == 1) {
-                    $query->whereNull('deleted_at');
-                } else {
-                    $query->whereNotNull('deleted_at');
-                }
-            }
+        //     if($status = $request->status) {
+        //         if($status == 1) {
+        //             $query->whereNull('deleted_at');
+        //         } else {
+        //             $query->whereNotNull('deleted_at');
+        //         }
+        //     }
 
-            if($fromDate = $request->from_date) {
-                $query->whereDate('created_at', '>=', $fromDate);
-            } else if($toDate = $request->to_date) {
-                $query->whereDate('created_at', '<=', $toDate);
-            } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
-                $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
-            }
+        //     if($fromDate = $request->from_date) {
+        //         $query->whereDate('created_at', '>=', $fromDate);
+        //     } else if($toDate = $request->to_date) {
+        //         $query->whereDate('created_at', '<=', $toDate);
+        //     } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
+        //         $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
+        //     }
             
-        });
+        // });
 
     
         switch($order_by) {
