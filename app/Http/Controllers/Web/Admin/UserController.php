@@ -23,7 +23,21 @@ class UserController extends Controller
         if ($request->route()->getName() == 'admin-users.authors') {
             $roleId = 2;
         } else {
-            $roleId = 0;
+            if($role_id = $request->role_id) {
+                $roleId = $role_id;
+            } else {
+                $roleId = 0;
+            }
+        }
+
+        if(!isset($request->order_by)) {
+            $order_by = 8;
+        }else {
+            if( $request->has('role_id') && ($request->role_id != 1 ||  $request->role_id =! 2)) {
+                $order_by = 8;
+            } else {
+                $order_by = $request->order_by;
+            }
         }
 
         $query = User::where( function($query) use ($request) {
@@ -63,12 +77,7 @@ class UserController extends Controller
             
         });
 
-        if(!isset($request->order_by)) {
-            $order_by = 8;
-        }else {
-            $order_by = $request->order_by;
-        }
-
+    
         switch($order_by) {
             case 1: 
                 $orderBy = 'name';
@@ -111,7 +120,6 @@ class UserController extends Controller
                 $query->orderBy($orderBy, $order);
                 break;
         }
-
 
         $users = $query->with('role')->paginate(15);
 

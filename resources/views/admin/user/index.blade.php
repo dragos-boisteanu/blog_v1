@@ -67,8 +67,12 @@
                     <option value="2" {{ old('order_by') == 2 ? 'selected' : ''}}>Name desc</option>
                     <option value="3" {{ old('order_by') == 3 ? 'selected' : ''}}>Email asc</option>
                     <option value="4" {{ old('order_by') == 4 ? 'selected' : ''}}>Email desc</option>
-                    <option value="5" {{ old('order_by') == 5 ? 'selected' : ''}}>Posts count asc</option>
-                    <option value="6" {{ old('order_by') == 6 ? 'selected' : ''}}>Posts count desc</option>
+                    @isset($roleId)
+                        @if($roleId == 1 || $roleId == 2)
+                            <option value="5" {{ old('order_by') == 5 ? 'selected' : ''}}>Posts count asc</option>
+                            <option value="6" {{ old('order_by') == 6 ? 'selected' : ''}}>Posts count desc</option>
+                        @endif
+                    @endisset
                     <option value="7" {{ old('order_by') == 7 ? 'selected' : ''}}>Created at asc</option>
                     <option value="8" {{ old('order_by') ==  8 || $order_by == 8  ? 'selected' : ''}}>Created at desc</option>
                 </select>
