@@ -2,6 +2,8 @@
 
 namespace App\Filters\User;
 
+use Illuminate\Routing\Route;
+
 class RoleFilter 
 {
     public function filter($builder, $value)

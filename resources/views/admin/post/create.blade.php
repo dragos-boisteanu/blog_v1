@@ -77,6 +77,9 @@
 @push('scripts')
 
     <script>
+        CKEDITOR.replace( 'content' );
+
+
         const imageLinkInput = document.getElementById('image-link');
         const postImage = document.getElementById('post-image');
         const imageContainer = document.querySelector('.image-container');
@@ -94,7 +97,7 @@
             showImageFromLink();
         }
         imageLinkInput.addEventListener("input", showImageFromLink);
-        CKEDITOR.replace( 'content' );
+        
     </script>
 
 @endpush

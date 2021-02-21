@@ -19,11 +19,11 @@
                 <span class="value">{{ $usersCount }}</span>
                 <span class="nmae">User{{ $usersCount > 1 || $usersCount == 0 ? 's' : ''}}</span>
             </a>
-            <a href="{{ route('admin-users.authors') }}" class="detail-card detail-card__authors">
+            <a href="{{ route('admin-users.index', ['role_id' => 2]) }}" class="detail-card detail-card__authors">
                 <span class="value">{{ $authorsCount }}</span>
                 <span class="name">Author {{ $authorsCount > 1 || $authorsCount == 0 ? 's' : ''}}</span>
             </a>
-            <a href="{{ route('admin-users.admins') }}" class="detail-card detail-card__administrators">
+            <a href="{{ route('admin-users.index', ['role_id' => 1]) }}" class="detail-card detail-card__administrators">
                 <span class="value">{{ $adminsCount }}</span>
                 <span class="name">Administrator {{ $adminsCount > 1 || $adminsCount == 0 ? 's' : ''}}</span>
             </a>

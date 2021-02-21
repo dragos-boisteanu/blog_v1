@@ -87,7 +87,8 @@
 
 @push('scripts')
     <script>
-        CKEDITOR.replace( 'content' );
+
+        CKEDITOR.replace( 'content');
 
         const imageLinkInput = document.querySelector('#image-link');
         const postImage = document.querySelector('#post-image');
