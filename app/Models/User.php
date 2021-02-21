@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
+use App\Filters\User\UserFilter;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -45,6 +48,10 @@ class User extends Authenticatable
     protected $appends = array('postsCount', 'status');
 
 
+    public function scopeFilter(Builder $builder, Request $request)
+    {
+        return (new UserFilter($request))->filter($builder);
+    }
     public function role()
     {
         return $this->belongsTo(Role::class);

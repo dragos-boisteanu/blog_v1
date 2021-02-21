@@ -5,7 +5,9 @@ namespace App\Models;
 use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Filters\Post\PostFilter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
@@ -22,10 +24,13 @@ class Post extends Model implements Viewable
         'image_url',
         'preview',
         'content',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
     protected $with = ['category', 'user'];
+
+    protected $appends = ['isSoftDeleted'];
 
     public function sluggable(): array
     {
@@ -36,7 +41,17 @@ class Post extends Model implements Viewable
         ];
     }
 
+
+    public function scopeFilter(Builder $builder, Request $request)
+    {
+        return ( new PostFilter($request))->filter($builder);
+    }
    
+    public function getIsSoftDeletedAttribute()
+    {
+        return isset($this->deleted_at) ? true : false;
+    }
+
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('d-M-Y');
@@ -54,7 +69,7 @@ class Post extends Model implements Viewable
 
     public function viewsCount()
     {
-        return views($this)->count();
+        return views($this)->unique()->count();
     }
 
     public function getStatus() {

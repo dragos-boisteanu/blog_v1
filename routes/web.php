@@ -36,13 +36,15 @@ Route::middleware(['auth'])->group(function() {
                 Route::prefix('posts')->group(function () { 
                     Route::get('/', 'PostController@index')->name('admin-post.index');
                     Route::get('/create', 'PostController@create')->name('admin-post.create');
-                    Route::post('/', 'PostController@store')->name('admin-post.store');
+                    Route::post('/', 'PostController@store')->name('admin-post.store');                  
                     Route::put('/{id}', 'PostController@update')->name('admin-post.update');
     
                     Route::get('/{id}', 'PostController@show')->name('admin-post.show');
                     Route::get('/{id}/edit', 'PostController@edit')->name('admin-post.edit');
     
+                    Route::post('/{id}/restore', 'PostController@restore')->name('admin-post.restore');
                     Route::delete('/{id}', 'PostController@destroy')->name('admin-post.delete');
+
                 });
     
                
