@@ -52,6 +52,7 @@ Route::middleware(['auth'])->group(function() {
                     Route::middleware(['restrict-author'])->group( function() {
                        
                         Route::get('/authors', 'UserController@index')->name('admin-users.authors');
+                        Route::get('/admins', 'UserController@index')->name('admin-users.admins');
                         Route::get('/', 'UserController@index')->name('admin-users.index');
                         Route::get('/user/{id}', 'UserController@show')->name('admin-users.show');
                         Route::put('/user/{id}', 'UserController@update')->name('admin-users.update');

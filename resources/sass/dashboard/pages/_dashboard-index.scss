@@ -57,5 +57,25 @@
             font-size: 1.5rem;
         }
 
+        &__posts {
+            @include dashboad-index-card-background(#e9ac06);
+            
+        }
+
+        &__users {
+            @include dashboad-index-card-background(#c24c15);            
+        }
+
+        &__categories {
+            @include dashboad-index-card-background(#0d5475); 
+        }
+
+        &__authors {
+            @include dashboad-index-card-background(#5f9715); 
+        }
+
+        &__administrators {
+            @include dashboad-index-card-background(#9e0cb1);
+        }
     }
 }

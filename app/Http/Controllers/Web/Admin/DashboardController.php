@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -15,6 +18,13 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.dashboard');
+
+        $postsCount = Post::count();
+        $categoriesCount = Category::count();
+        $usersCount = User::count();
+        $authorsCount = User::where('role_id', 2)->count();
+        $adminsCount = User::where('role_id', 1)->count();
+
+        return view('admin.dashboard', compact('postsCount', 'categoriesCount', 'usersCount', 'authorsCount', 'adminsCount'));
     }
 }

@@ -328,6 +328,36 @@ table .status--inactive {
 .dashboard-details .detail-card .name {
   font-size: 1.5rem;
 }
+.dashboard-details .detail-card__posts {
+  background: #e9ac06;
+}
+.dashboard-details .detail-card__posts:hover {
+  background: #f9ba10;
+}
+.dashboard-details .detail-card__users {
+  background: #c24c15;
+}
+.dashboard-details .detail-card__users:hover {
+  background: #d95517;
+}
+.dashboard-details .detail-card__categories {
+  background: #0d5475;
+}
+.dashboard-details .detail-card__categories:hover {
+  background: #10648c;
+}
+.dashboard-details .detail-card__authors {
+  background: #5f9715;
+}
+.dashboard-details .detail-card__authors:hover {
+  background: #6dad18;
+}
+.dashboard-details .detail-card__administrators {
+  background: #9e0cb1;
+}
+.dashboard-details .detail-card__administrators:hover {
+  background: #b30ec9;
+}
 
 .post-create {
   display: flex;
