@@ -93,7 +93,7 @@ class PostController extends Controller
 
         Post::create($input);
 
-        session()->flash('info', 'The post was deleted');
+        session()->flash('info', 'The post was created');
 
         return redirect()->route('admin-post.index');
     }
