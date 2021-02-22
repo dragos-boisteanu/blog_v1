@@ -7,7 +7,7 @@
             <div id="header-dropdown" class="header__dropdown">
                 <div class="dropdown__header">
                     <div class="text">
-                        username
+                        {{ Auth::user()->name}}
                     </div>
                     <div class="arrows">
                         <svg xmlns="http://www.w3.org/2000/svg" class="arrow-down" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
