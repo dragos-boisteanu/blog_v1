@@ -27,10 +27,13 @@ Route::middleware(['auth'])->group(function() {
         });
     });
  
+
     Route::middleware(['admin'])->group(function() {
+
         Route::namespace('Web\Admin')->group(function () {
 
             Route::prefix('dashboard')->group(function () { 
+
                 Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
                 Route::prefix('posts')->group(function () { 
@@ -47,21 +50,19 @@ Route::middleware(['auth'])->group(function() {
 
                 });
     
-               
-                Route::prefix('users')->group(function () { 
-                    Route::middleware(['restrict-author'])->group( function() {                 
+                Route::middleware(['restrict-author'])->group( function() {    
+                    Route::prefix('users')->group(function () { 
+                        
                         Route::get('/', 'UserController@index')->name('admin-users.index');
                         Route::get('/user/{id}', 'UserController@show')->name('admin-users.show');
                         Route::put('/user/{id}', 'UserController@update')->name('admin-users.update');
                         Route::get('/user/{id}/edit', 'UserController@edit')->name('admin-users.edit');
         
                         Route::delete('/user/{id}', 'UserController@destroy')->name('admin-users.delete');
-                       
-                    });
-                });                
-    
-                Route::prefix('categories')->group(function () { 
-                    Route::middleware(['restrict-author'])->group( function() {
+                    }); 
+                    
+                    Route::prefix('categories')->group(function () { 
+                
                         Route::get('/', 'CategoryController@index')->name('admin-categories.index');
                         Route::get('/create', 'CategoryController@create')->name('admin-categories.create');
                         Route::post('/', 'CategoryController@store')->name('admin-categories.store');
@@ -72,7 +73,10 @@ Route::middleware(['auth'])->group(function() {
         
                         Route::delete('/{id}', 'CategoryController@destroy')->name('admin-categories.delete');
                     });
+
                 });
+                          
+                
             });
            
         });
@@ -84,5 +88,4 @@ Route::namespace('Web\Client')->group(function () {
     Route::get('/search', 'SearchController@index')->name('search');
     Route::get('/{category}/{slug}', 'PostController@show')->name('post.show');
     Route::get('/{category}', 'CategoryController@show')->name('category.show');
-
 });

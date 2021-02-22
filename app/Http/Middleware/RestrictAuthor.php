@@ -18,17 +18,14 @@ class RestrictAuthor
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()->role_id == 2) {
-            if($request->route('id') == Auth::id()) {
-                return $next($request);
-            }else {
+            if($request->route('id') != Auth::id()) { 
                 abort(403);
             }
-        }else if(Auth::user()->role_id == 1){
-            return $next($request);
-        } else {
-            // redirect()->route('dashboard.index');
+        }else if(Auth::user()->role_id != 1){
             abort(403);
         }
+
+        return $next($request);
        
     }
 }
