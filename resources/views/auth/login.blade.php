@@ -4,9 +4,6 @@
             <img src="{{asset('storage/logo.png')}}"/>
         </x-slot>
 
-        <!-- Session Status -->
-        <x-auth-session-status  :status="session('status')" />
-
         <form method="POST" class="form" action="{{ route('login') }}">
             @csrf
 
