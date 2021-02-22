@@ -12,6 +12,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+    0 2px 2px rgba(0,0,0,0.15), 
+    0 4px 4px rgba(0,0,0,0.15), 
+    0 8px 8px rgba(0,0,0,0.15);
+
+    cursor: pointer;
     
     &--info {
         background-color: #10648c;
@@ -38,14 +45,4 @@
         font-weight: 500;
         color: $white;
     }
-
-    &__close {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        cursor: pointer;
-    }
-    
-
-
 }

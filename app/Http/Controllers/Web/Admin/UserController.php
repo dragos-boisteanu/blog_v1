@@ -41,44 +41,6 @@ class UserController extends Controller
         }
 
         $query = User::filter($request);
-
-        // $query = User::where( function($query) use ($request) {
-        //     if($id = $request->id) {
-        //         $query->where('id', $id);
-        //     }
-
-        //     if($name = $request->name) {
-        //         $query->where('name', 'like', '%'.$name.'%');
-        //     }
-
-        //     if($email = $request->email) {
-        //         $query->where('email', 'like', '%'.$email.'%');
-        //     }
-
-        //     if($roleId = $request->role_id) {
-        //         $query->where('role_id', $roleId);
-        //     }else if ($request->route()->getName() == 'admin-users.authors') {
-        //         $query->where('role_id', 2);
-        //     }
-    
-        //     if($status = $request->status) {
-        //         if($status == 1) {
-        //             $query->whereNull('deleted_at');
-        //         } else {
-        //             $query->whereNotNull('deleted_at');
-        //         }
-        //     }
-
-        //     if($fromDate = $request->from_date) {
-        //         $query->whereDate('created_at', '>=', $fromDate);
-        //     } else if($toDate = $request->to_date) {
-        //         $query->whereDate('created_at', '<=', $toDate);
-        //     } else if ($fromDate = $request->from_date && $toDate = $request->to_date) {
-        //         $query->whereDate('created_at', '>=', $fromDate)->whereDate('created_at', '<=', $toDate);
-        //     }
-            
-        // });
-
     
         switch($order_by) {
             case 1: 
@@ -143,7 +105,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $query = Post::filter($request);
+        $query = Post::where('user_id', auth()->id())->filter($request);
 
         if(!isset($request->order_by)) {
             $order_by = 6;

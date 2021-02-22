@@ -25,7 +25,12 @@
             @include('includes.dashboard.side-nav')
             <div class="darshboard__content">
                 @include('includes.dashboard.header')
-                <main class="view__body">                   
+                <main class="view__body">   
+                        
+                    @if (Session::has('info'))
+                        <x-notification type="info" message="{{ Session('info') }}"></x-notification>
+                    @endif         
+
                     @yield('breadcrumbs')
                        
                     <div class="content">

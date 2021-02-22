@@ -10,20 +10,12 @@
     <div class="notification__message">
         {{ $message }}
     </div>
-    <div class="notification__close">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
-            <path d="M0 0h24v24H0V0z" fill="none"/>
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
-        </svg>
-    </div>
 </div>
 
 <script>
-    
-    const notificationClose = document.querySelector('.notification__close');
+    const notification = document.querySelector('.notification');
 
-    notificationClose.addEventListener('click', function() {
-        const notification = document.querySelector('.notification');
+    notification.addEventListener('click', function() {
         notification.style.display = 'none';
     })
 </script>

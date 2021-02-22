@@ -65,7 +65,9 @@
                     {{ $post->viewsCount() }}
                 </td>
                 <td>
-                    <a href="{{ route('admin-post.edit', ['id'=>$post->id]) }}">Edit</a>  
+                    @can('update-post', $post)
+                        <a href="{{ route('admin-post.edit', ['id'=>$post->id]) }}">Edit</a>  
+                    @endcan
                 </td>
             </tr>
 
