@@ -1,0 +1,51 @@
+.notification {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: transparent;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    padding: 10px;
+
+    min-width: 240px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    &--info {
+        background-color: #10648c;
+    }
+
+    &--error {
+        background-color: #dc143c;
+    }
+
+    &--succsess {
+        background-color: #6dad18;
+    }
+
+    &__image {
+        height: 24px;
+        width: 24px;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__message {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $white;
+    }
+
+    &__close {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        cursor: pointer;
+    }
+    
+
+
+}

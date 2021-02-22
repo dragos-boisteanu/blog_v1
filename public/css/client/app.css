@@ -926,6 +926,46 @@ select[name=q] {
   font-size: 0.6rem;
 }
 
+.notification {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: transparent;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  padding: 10px;
+  min-width: 240px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.notification--info {
+  background-color: #10648c;
+}
+.notification--error {
+  background-color: #dc143c;
+}
+.notification--succsess {
+  background-color: #6dad18;
+}
+.notification__image {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+}
+.notification__message {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffff;
+}
+.notification__close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+}
+
 .post__content {
   margin-top: 25px;
   font-size: 0.8rem;

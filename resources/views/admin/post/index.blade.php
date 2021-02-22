@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+
+    @if (Session::has('info'))
+        <x-notification type="info" message="{{ Session('info') }}"></x-notification>
+    @endif
+    
     <h1>
         Posts list
     </h1>
