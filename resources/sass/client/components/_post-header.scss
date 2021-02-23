@@ -17,6 +17,7 @@
         overflow: hidden;
 
         &:hover {
+            
             img {
                 opacity: 0.6;
                 transform: scale(1.5);
@@ -75,16 +76,23 @@
     }
 
     .category-name {
-        background: rgb(255, 115, 1);
-        left: 0px;
-        top: 0px;
+        background: $red;
+        left: 10px;
+        top: 10px;
         width: 60px;
+        border-radius: 3px;
+
+        box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+        0 2px 2px rgba(0,0,0,0.20), 
+        0 4px 4px rgba(0,0,0,0.15), 
+        0 8px 8px rgba(0,0,0,0.10),
+        0 16px 16px rgba(0,0,0,0.05);
     }
 
     .views-counter {
         right: 10px;
         bottom: 10px;
-        color: rgba(255, 255, 255, 0.6);
+        color: #ffffff99;
         // background: rgb(223, 19, 19);
     }
 }
