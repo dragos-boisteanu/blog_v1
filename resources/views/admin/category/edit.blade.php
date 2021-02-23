@@ -28,7 +28,7 @@
     </div>   
 @endsection
 
-@push('scrips')
+@push('scripts')
     <script>
         const deleteBtn = document.querySelector('#delete-btn');
         const deleteForm = document.querySelector('#delete-form');

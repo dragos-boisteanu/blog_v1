@@ -179,7 +179,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id)->delete();
+       Category::findOrFail($id)->delete();
 
         session()->flash('info', 'Category deleted');
 

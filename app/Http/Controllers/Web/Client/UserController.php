@@ -35,9 +35,11 @@ class UserController extends Controller
         
         $user->update($request->all());
 
+        $user->refresh();
+
         session()->flash('info', 'Your details has been updated');
 
-        return view('user', compact('user'));
+        return view('account', compact('user'));
     }
 
     /**
