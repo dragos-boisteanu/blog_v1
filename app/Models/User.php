@@ -61,6 +61,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function readLaterPosts()
+    {
+        return $this->belongsToMany(Post::class, 'read_later_posts')->withPivot('created_at')->withTimestamps();
+    }
     
     public function getStatusAttribute() 
     {

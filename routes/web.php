@@ -15,13 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::group(['middleware'=>'auth', 'namespace'=>'Web\Client', 'prefix'=>'account'], function() {
-    // Route::get('/read-later', '')->name('client-read-later');
-     
+Route::group(['middleware'=>'auth', 'namespace'=>'Web\Client', 'prefix'=>'account'], function() {    
     Route::get('/', 'UserController@edit')->name('client-user.edit');
     Route::put('/', 'UserController@update')->name('client-user.update');
-
     Route::delete('/', 'UserController@destroy')->name('client-user.delete');
+});
+
+Route::group(['middleware'=>'auth', 'namespace'=>'Web\Client', 'prefix'=>'read-later'], function() {
+    Route::get('/', 'ReadLaterController@index')->name('client-read-later.index');
+    Route::post('/', 'ReadLaterController@store')->name('client-read-later.store');
+    Route::delete('/', 'ReadLaterController@destroy')->name('client-read-later.delete');
 });
 
 

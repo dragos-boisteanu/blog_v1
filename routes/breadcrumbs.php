@@ -29,10 +29,14 @@ Breadcrumbs::for('account', function ($trail) {
     $trail->push('My account', route('client-user.edit'));
 });
 
+Breadcrumbs::for('read-later', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Read Later', route('client-read-later.index'));
+});
 
 
 
-
+// DASHBOARD
 Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('dashboard.index'));
 });

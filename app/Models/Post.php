@@ -30,7 +30,7 @@ class Post extends Model implements Viewable
 
     protected $with = ['category', 'user'];
 
-    protected $appends = ['isSoftDeleted'];
+    protected $appends = ['isSoftDeleted', 'isReadLater'];
 
     public function sluggable(): array
     {
@@ -67,13 +67,24 @@ class Post extends Model implements Viewable
         return $this->belongsTo(Category::class);
     }
 
+    public function reader()
+    {
+        return $this->belongsToMany(User::class, 'read_later_posts')->withPivot('created_at')->withTimestamps();
+    }
+
     public function viewsCount()
     {
         return views($this)->unique()->count();
     }
 
-    public function getStatus() {
+    public function getStatus() 
+    {
         return isset($this->deleted_at) ? false : true;
+    }
+
+    public function getIsReadLaterAttribute()
+    {
+        return $this->reader()->exists();
     }
 
 }
