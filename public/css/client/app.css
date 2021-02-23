@@ -838,13 +838,15 @@ select[name=q] {
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+.post___header .image-container--zoom {
   overflow: hidden;
 }
-.post___header .image-container:hover img {
+.post___header .image-container--zoom:hover img {
   opacity: 0.6;
   transform: scale(1.5);
 }
-.post___header .image-container:hover .middle {
+.post___header .image-container--zoom:hover .middle {
   opacity: 1;
 }
 .post___header .image-container img {

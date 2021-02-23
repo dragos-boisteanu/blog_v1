@@ -1,10 +1,10 @@
-@props(['post'])
+@props(['post', 'zoom' => true])
 
 <div {{ $attributes->merge(['class' => 'post___header']) }}>
     <div class="title">
         {{ $post->title }}
     </div>
-    <div class="image-container">
+    <div class="image-container {{ $zoom ? 'image-container--zoom' : ''}}">
         <img src="{{ $post->image_url }}" alt="{{ $post->title }}"/>
         <div class="category-name ">
             {{ $post->category->name}}

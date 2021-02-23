@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <x-post-header :post="$post" class="post__header--not-link"></x-post-header>
+    <x-post-header :post="$post" :zoom="false" class="post__header--not-link"></x-post-header>
 
     <div class="reading-list-action"> 
         @if ($post->isReadLater)

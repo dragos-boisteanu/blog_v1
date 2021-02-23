@@ -14,20 +14,25 @@
         background-position: center;
         background-repeat: no-repeat;
         
-        overflow: hidden;
+        &--zoom {
+            overflow: hidden;
 
-        &:hover {
+            &:hover {
             
-            img {
-                opacity: 0.6;
-                transform: scale(1.5);
+                img {
+                    opacity: 0.6;
+                    transform: scale(1.5);
+                }
+    
+                .middle {
+                    opacity: 1;
+                }
             }
-
-            .middle {
-                opacity: 1;
-            }
+    
         }
+        
 
+       
         img {
             height: 100%;
             width: 100%;
