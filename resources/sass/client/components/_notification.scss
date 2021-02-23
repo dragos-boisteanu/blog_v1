@@ -23,15 +23,15 @@
     cursor: pointer;
     
     &--info {
-        background-color: #10648c;
+        @include notification-backgorund-color(#10648c);
     }
 
     &--error {
-        background-color: #dc143c;
+        @include notification-backgorund-color(#dc143c);
     }
 
     &--succsess {
-        background-color: #6dad18;
+        @include notification-backgorund-color(#6dad18);
     }
 
     &__image {

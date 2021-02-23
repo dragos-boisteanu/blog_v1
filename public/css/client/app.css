@@ -956,13 +956,22 @@ select[name=q] {
   cursor: pointer;
 }
 .notification--info {
-  background-color: #10648c;
+  background: #10648c;
+}
+.notification--info:hover {
+  background: #1374a3;
 }
 .notification--error {
-  background-color: #dc143c;
+  background: #dc143c;
+}
+.notification--error:hover {
+  background: #eb1f48;
 }
 .notification--succsess {
-  background-color: #6dad18;
+  background: #6dad18;
+}
+.notification--succsess:hover {
+  background: #7bc31b;
 }
 .notification__image {
   height: 24px;
