@@ -18,6 +18,9 @@
     </head>
     <body>
         @include('includes.header')
+        @if (Session::has('info'))
+            <x-notification type="info" message="{{ Session('info') }}"></x-notification>
+        @endif 
         <div class="view">
             <main class="view__body">
                 @yield('breadcrumbs')

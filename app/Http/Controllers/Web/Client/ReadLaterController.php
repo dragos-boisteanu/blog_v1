@@ -34,7 +34,10 @@ class ReadLaterController extends Controller
     {
         $request->user()->readLaterPosts()->attach($request->post_id);
 
-        return Redirect::to(URL::previous() . "#".$request->post_id);
+        session()->flash('info', 'Post added to read later list');
+
+        // return Redirect::to(URL::previous() . "#".$request->post_id);
+        return redirect()->back();
     }
 
     /**
@@ -47,6 +50,9 @@ class ReadLaterController extends Controller
     {
         $request->user()->readLaterPosts()->detach($request->post_id);
 
-        return Redirect::to(URL::previous() . "#".$request->post_id);
+        session()->flash('info', 'Post removed from read later list');
+
+        // return Redirect::to(URL::previous() . "#".$request->post_id);
+        return redirect()->back();
     }
 }

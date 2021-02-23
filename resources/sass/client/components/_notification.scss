@@ -2,10 +2,12 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     background-color: transparent;
-    position: absolute;
-    top: 25px;
+    position: fixed;
+    // top: 25px;
+    top: 100px;
     right: 0;
     padding: 10px;
+    z-index: 2;
 
     min-width: 240px;
 

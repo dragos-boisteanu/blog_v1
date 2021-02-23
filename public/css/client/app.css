@@ -456,6 +456,7 @@ body {
 }
 
 .view {
+  position: relative;
   flex: 1 1 auto;
   max-width: 1000px;
   width: 65%;
@@ -930,10 +931,11 @@ select[name=q] {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color: transparent;
-  position: absolute;
-  top: 25px;
+  position: fixed;
+  top: 100px;
   right: 0;
   padding: 10px;
+  z-index: 2;
   min-width: 240px;
   display: flex;
   justify-content: space-around;
