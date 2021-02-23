@@ -19,12 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->longText('content');
             $table->foreignId("user_id")->constrained();
-            $table->foreignId("category_id")->constrained();
+            $table->foreignId("category_id")->onDelete('cascade')->constrained();
             $table->softDeletes();
             $table->timestamps();
-
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign("category_id")->references("id")->on("categories");
         });
     }
 

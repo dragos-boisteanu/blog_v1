@@ -15,8 +15,8 @@ class CreateReadLaterPostsTable extends Migration
     {
         Schema::create('read_later_posts', function (Blueprint $table) {
             $table->primary(['post_id','user_id']);
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->onDelete('cascade')->constrained();
+            $table->foreignId('user_id')->onDelete('cascade')->constrained();
             $table->timestamps();
         });
     }
