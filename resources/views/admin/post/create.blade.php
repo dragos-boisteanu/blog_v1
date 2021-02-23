@@ -77,7 +77,10 @@
 @push('scripts')
 
     <script>
-        CKEDITOR.replace( 'content' );
+        CKEDITOR.plugins.addExternal('youtube', '/storage/ckeditor/plugins/youtube/', 'plugin.js');
+        CKEDITOR.replace( 'content', {
+            extraPlugins: 'youtube'
+        } );
 
 
         const imageLinkInput = document.getElementById('image-link');
