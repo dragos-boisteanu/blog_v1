@@ -17,7 +17,7 @@
     
                 <div class="form__group">
                     <label class="label">Title</label>
-                    <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{old('title')}}"  placeholder="Post title" autofocus />
+                    <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{old('title')}}"  placeholder="Post title" />
                     @error('title')
                         <div class="form__notification form__notification--error">{{ $message }}</div>
                     @enderror
@@ -55,7 +55,7 @@
                     <select name="category_id" class="{{ $errors->has('category_id') ? 'validation--error' : '' }}">
                         <option selected disabled>Select category</option>
                         @foreach($categories as $category)  
-                            <option value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @error('category_id')

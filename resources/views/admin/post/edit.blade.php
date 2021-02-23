@@ -17,7 +17,7 @@
 
                 <div class="form__group">
                     <label class="label">Title</label>
-                    <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{ $post->title }}"  placeholder="Post title" autofocus />
+                    <x-input id="title" class="{{ $errors->has('title') ? 'validation--error' : ''}}" type="text" name="title" value="{{ $post->title }}"  placeholder="Post title" />
                     @error('title')
                         <div class="form__notification form__notification--error">{{ $message }}</div>
                     @enderror
