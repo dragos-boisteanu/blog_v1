@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->longText('content');
             $table->foreignId("user_id")->constrained();
-            $table->foreignId("category_id")->onDelete('cascade')->constrained();
+            $table->foreignId("category_id")->constrained()->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
