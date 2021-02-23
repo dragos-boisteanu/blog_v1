@@ -706,8 +706,12 @@ footer .copyright {
   margin-top: 0;
 }
 .posts .posts-list .post .preview {
-  padding: 15px 0;
+  padding: 15px 0 5px 0;
   font-size: 0.725rem;
+}
+.posts .posts-list .post .reading-list-action {
+  padding-bottom: 10px;
+  text-align: right;
 }
 
 .btn {
@@ -745,6 +749,14 @@ footer .copyright {
 .btn-danger {
   border: 1px solid rgba(0, 0, 0, 0.2);
   color: #df1313;
+}
+.btn-read-later {
+  padding: 0;
+  font-size: 0.725rem;
+  color: #07b8ff;
+}
+.btn-read-later:hover {
+  color: #0097d3;
 }
 
 input,

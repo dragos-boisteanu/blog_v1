@@ -45,6 +45,16 @@
         border: 1px solid rgba(0, 0, 0, 0.2);
         color: $red;
     }
+
+    &-read-later {
+        padding: 0;
+        font-size: 0.725rem;
+        color: lighten($blue, 10);
+
+        &:hover {
+            color: $blue;
+        }
+    }
 }
 
 
