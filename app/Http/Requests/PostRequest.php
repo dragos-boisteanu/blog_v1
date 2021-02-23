@@ -26,7 +26,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'image_url' => 'required|url',
-            'preview' => 'required|string|max:100',
+            'preview' => 'required|string|max:255',
             'content' => 'required|string',
             'category_id' => 'required|numeric'
         ];
