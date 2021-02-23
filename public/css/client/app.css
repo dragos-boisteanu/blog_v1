@@ -720,11 +720,8 @@ footer .copyright {
   color: #e50050;
 }
 .posts .posts-list .post .preview {
+  padding-top: 10px;
   font-size: 0.725rem;
-}
-.posts .posts-list .post .reading-list-action {
-  padding-bottom: 10px;
-  text-align: right;
 }
 
 .btn {
@@ -877,7 +874,6 @@ select[name=q] {
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  padding: 10px 0;
 }
 .post___header .details .date {
   font-size: 0.725rem;
@@ -996,10 +992,17 @@ select[name=q] {
   color: #ffff;
 }
 
+.reading-list-action {
+  padding-bottom: 10px;
+  text-align: right;
+}
+
 .post__content {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #2c2f34;
-  margin-top: 25px;
   font-size: 15px;
   line-height: 26px;
+}
+.post__content p {
+  margin-top: 0;
 }
