@@ -2,7 +2,7 @@
 
 namespace App\Filters\Post;
 
-use App\Filters\Post\IdFilter;
+use App\Filters\General\IdFilter;
 use App\Filters\AbstractFilter;
 use App\Filters\General\FromDateFilter;
 use App\Filters\General\OrderByFilter;
